@@ -76,14 +76,18 @@
 
   <section class="section-hero hero-homepage" data-section-theme="white">
     <div class="container">
-      <div class="section-body">
-        <section class="section-inner">
-          <h2 class="section-title">We render top quality medical services</h2>
-          <div class="d-flex">
-            <a href="" class="button mx-3 p-4">Book Appointment</a>
-            <a href="" class="button mx-3 p-4">Emergency</a>
+      <div class="row">
+        <div class="col-6">
+          <div class="section-body">
+            <section class="section-inner">
+              <h2 class="section-title">We render top quality medical services</h2>
+              <div class="d-flex">
+                <a href="{% url 'appointment' %}" class="button mx-3 p-4">Book Appointment</a>
+                <a href="" class="button mx-3 p-4">Emergency</a>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </section>
