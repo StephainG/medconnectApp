@@ -3,6 +3,9 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+from medconnect import settings
+from django.core.mail import send_mail
+
 # Create your views here.
 
 def home(request):
@@ -24,6 +27,8 @@ def signup(request):
             elif User.objects.filter(email=email).exists():
                 messages.info(request, 'Email already exists')
                 return redirect('signup')
+            elif len(username) > 10:
+                messages.info(request, 'Username too long')
             else:   
                 user = User.objects.create_user(username=username, email=email, first_name=first_name, last_name=last_name, password=password1)
                 user.save()
@@ -31,6 +36,14 @@ def signup(request):
         else:
             messages.info(request, 'Passwords do not match')
             return redirect('signup')
+        
+        # WELCOME EMAIL
+        subject = 'Welcome to medConnect'
+        message = 'Hello' + user.username + '! \n' + 'Thank you for registering on our website.\n' + 'A confirmation email will be sent to you shortly.\n' + 'Please click the following link to confirm your registration'
+        from_email = settings.EMAIL_HOST_USER
+        to_email = user.email
+        send_mail(subject, message, from_email, to_email, fail_silently=True)
+
     else:   
         return render(request, 'authenticate/signup.html')
     
