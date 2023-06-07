@@ -47,9 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'medconnectApp',
     'medconnectMain',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'captcha',
 ]
 
 AUTH_USER_MODEL = 'medconnectApp.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,3 +141,13 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+AUTHENTICATION_BACKENDS = ['medconnectApp.backend.EmailBackend']
+
+RECAPTCHA_PUBLIC_KEY = '6LeDLngmAAAAAFd8ubuYFMxK06GLBswgB1Z1psF7'
+RECAPTCHA_PRIVATE_KEY = '6LeDLngmAAAAAHjw69nQUHaq0UU-b8cnRGv3lrVh'
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']

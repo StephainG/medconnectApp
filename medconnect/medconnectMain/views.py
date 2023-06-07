@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
 from .models import Appointment
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 class AppointmentTemplateView(TemplateView):
@@ -25,3 +27,9 @@ class AppointmentTemplateView(TemplateView):
 
         messages.add_message(request, messages.SUCCESS, f"{fname.upper()}, Thank you. We will contact you as soon as possible")
         return HttpResponseRedirect(request.path)
+    
+
+def signout(request):
+    logout(request)
+    messages.info(request, 'Logged out successfully')
+    return redirect('/')
