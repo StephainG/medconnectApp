@@ -17,12 +17,6 @@ from . info import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-EMAIL_USE_TLS = EMAIL_USE_TLS
-EMAIL_HOST = EMAIL_HOST
-EMAIL_PORT = EMAIL_PORT
-EMAIL_HOST_USER = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -151,3 +145,18 @@ AUTHENTICATION_BACKENDS = ['medconnectApp.backend.EmailBackend']
 RECAPTCHA_PUBLIC_KEY = '6LeDLngmAAAAAFd8ubuYFMxK06GLBswgB1Z1psF7'
 RECAPTCHA_PRIVATE_KEY = '6LeDLngmAAAAAHjw69nQUHaq0UU-b8cnRGv3lrVh'
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+#Email settings
+EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = 'onikunle03@gmail.com'
+EMAIL_HOST_USER = 'onikunle03@gmail.com'
+EMAIL_HOST_PASSWORD = 'nhwfsopfjmfojufo'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+PASSWORD_RESET_TIMEOUT = 14400

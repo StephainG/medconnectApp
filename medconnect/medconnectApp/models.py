@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
 from django.utils import timezone
 from django.http import request
+import os
 
 
 class CustomUserManager(UserManager):
@@ -26,17 +27,31 @@ class CustomUserManager(UserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+
+    def image_upload_to(self, instance=None):
+        if instance:
+            return os.path.join("Users", self.username, instance)
+        return None
+
+    STATUS = (
+        ('REGULAR', 'REGULAR'),
+        ('GOLD', 'GOLD'),
+        ('PLATINUM', 'PLATINUM'),
+    )
+
     username = models.CharField(max_length=255, blank=True, default="")
     first_name = models.CharField(max_length=255, blank=True, default="")
     last_name = models.CharField(max_length=255, blank=True, default="")
     email = models.EmailField(max_length=255,unique=True, blank=True, default="")
-    # phone_number = models.IntegerField(blank=True)
-    # address = models.CharField(max_length=255)
+    phone_number = models.IntegerField(blank=True, null=True)
+    status = models.CharField(max_length=255, choices=STATUS, default="REGULAR")
+    address = models.CharField(max_length=255, null=True)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
     last_login = models.DateTimeField(blank=True, null=True)
+    image = models.ImageField(default="default/logo.jpg", upload_to=image_upload_to)
 
     objects = CustomUserManager()
 

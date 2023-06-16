@@ -82,7 +82,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   
     /** BUTTON **/
     --button-display: inline-block;
-    --button-padding: 0.75rem 1.5rem;
+    --button-padding: 0.75rem 2.5rem;
     --button-border: var(--color-primary) solid 0.2rem;
     --button-color: var(--color-black);
     --button-text-decoration: none;
@@ -503,6 +503,10 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   /* Card WORK
       ============================= */
   
+\ .card-work{
+  background-color: white;
+}
+
   .card-work .card-outer {
     position: relative;
     overflow: hidden;
@@ -791,9 +795,10 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     font-size: 1.4rem;
     padding: 0 0 .5rem;
   }
-  
-  input[type=text],
-  input[type=email],
+
+  input[type="text"],
+  input[type="email"], 
+  input[type="password"],
   textarea {
     position: relative;
     width: 100%;
@@ -806,12 +811,14 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   }
   
   input[type=text],
-  input[type=email] {
+  input[type=email],
+  input[type=password] {
     padding-right: 3rem;
   }
   
   input[type=text]:focus,
   input[type=email]:focus,
+  input[type=password]:focus,
   textarea:focus {
     border: .1rem solid var(--color-grey);
   }
@@ -1006,4 +1013,11 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     .header-logo {
         flex-basis: 79%;
     }
+  }
+
+
+  .profile-image {
+    width: 125px;
+    height: 125px;
+    padding: 5px;
   }

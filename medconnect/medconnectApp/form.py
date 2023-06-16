@@ -18,7 +18,7 @@ class UserRegistrationForm(UserCreationForm):
         if commit:
             user.save()
         return user
-    
+
 
 class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
@@ -33,3 +33,11 @@ class UserLoginForm(AuthenticationForm):
     
 
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'first_name', 'last_name', 'email', 'image', 'phone_number', 'status', 'address']
