@@ -41,7 +41,7 @@
                     <a href="#latest_news" class="nav-link">Latest news</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#testimonials" class="nav-link">Testimonials</a>
+                    <a href="#testimonial" class="nav-link">Testimonials</a>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
@@ -100,7 +100,7 @@
               <h2 class="section-title">We render top quality medical services</h2>
               <div class="d-flex">
                 <a href="{% url 'appointment' %}" class="button mx-3 p-4">Book Appointment</a>
-                <a href="" class="button mx-3 p-4">Emergency</a>
+                <a href="{% url 'emergency' %}" class="button mx-3 p-4">Emergency</a>
               </div>
             </section>
           </div>
@@ -139,7 +139,7 @@
   </div>
 </section>
 <hr width="50%" style="margin: auto;">
-<section id="works" class="section section-works" data-section-theme="white">
+<section id="services" class="section section-works" data-section-theme="white">
   <div class="container">
     <header class="section-header">
       <h2 class="section-title">Our Services</h2>
@@ -154,7 +154,7 @@
                 <img src="{% static 'images/family-medicine.jpg' %}" class="card-img-top" alt="...">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="#">Interior Design</a></h3>
+                <h3 class="card-title"><a href="{% url 'familyMed' %}">Family Medicine</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
@@ -170,7 +170,7 @@
                 <img src="{% static 'images/psychology.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="#">Web Development</a></h3>
+                <h3 class="card-title"><a href="{% url 'psychiatry' %}">Psychiatry</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
@@ -186,7 +186,7 @@
                 <img src="{% static 'images/surgery.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="#">Personal Development</a></h3>
+                <h3 class="card-title"><a href="{% url 'surgery' %}">Surgery</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
@@ -202,7 +202,7 @@
                 <img src="{% static 'images/dermatology.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="#">Personal Development</a></h3>
+                <h3 class="card-title"><a href="{% url 'dermatology' %}">Dermatology</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
@@ -218,7 +218,7 @@
                 <img src="{% static 'images/neurology.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="#">Personal Development</a></h3>
+                <h3 class="card-title"><a href="{% url 'neurology' %}">Neurology</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
@@ -234,7 +234,7 @@
                 <img src="{% static 'images/dental.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="#">Personal Development</a></h3>
+                <h3 class="card-title"><a href="{% url 'dental' %}">Dental</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
@@ -284,6 +284,8 @@
   </div>
 </section>
 <hr width="50%" style="margin: auto;">
+
+
 <section id="testimonial" class="section section-testimonial">
   <div class="container">
     <header class="section-header">
@@ -332,7 +334,7 @@
       <div class="row text-center"> 
         <div class="col">
           <div class="contact-detail-box">
-            <i class="far fa-envelope text-info fa-3x"></i>
+            <i class="far fa-envelope fa-3x favicon-image"></i>
             <h4>Get In Touch</h4>
             <abbr title="Phone">P:</abbr>+234-810-958-1485<br>
             E: <a href="onikunle03@gmail.com" class="text-muted">onikunle03@gmail.com</a>
@@ -341,7 +343,7 @@
 
         <div class="col">
           <div class="contact-detail-box">
-            <i class="fa fa-map-marker fa-3x text-info"></i>
+            <i class="fa fa-map-marker fa-3x favicon-image"></i>
             <h4>Our Location</h4>
 
             <address>
@@ -381,7 +383,7 @@
               <div class="error" id="err-message" style="display: none;">Please enter message</div>
             </div>
             <div class="row">            
-                <button type="submit" class="btn btn-info" id="send">Send</button>
+                <button type="submit" class="btn btn-danger" id="send">Send</button>
             </div>
           </form>
         </div>

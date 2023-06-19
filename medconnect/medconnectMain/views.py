@@ -59,15 +59,15 @@ class ManageAppointmentTemplateView(ListView):
             "date":date,
         }
 
-        message = get_template('email.html').render(data)
-        email = EmailMessage(
-            "About your appointment",
-            message,
-            settings.EMAIL_HOST_USER,
-            [appointment.email],
-        )
-        email.content_subtype = "html"
-        email.send()
+        # message = get_template('email.html').render(data)
+        # email = EmailMessage(
+        #     "About your appointment",
+        #     message,
+        #     settings.EMAIL_HOST_USER,
+        #     [appointment.email],
+        # )
+        # email.content_subtype = "html"
+        # email.send()
 
         messages.add_message(request, messages.SUCCESS, f"You accepted the appointment of {appointment.first_name}")
         return HttpResponseRedirect(request.path)
@@ -86,3 +86,24 @@ def signout(request):
     logout(request)
     messages.info(request, 'Logged out successfully')
     return redirect('/')
+
+def surgery(request):
+    return render(request, 'services/surgery.html')
+
+def dental(request):
+    return render(request, 'services/dental.html')
+
+def dermatology(request):
+    return render(request, 'services/dermatology.html')
+
+def familyMed(request):
+    return render(request, 'services/familyMed.html')
+
+def neurology(request):
+    return render(request, 'services/neurology.html')
+
+def psychiatry(request):
+    return render(request, 'services/psychiatry.html')
+
+def emergency(request):
+    return render(request, 'emergency.html')

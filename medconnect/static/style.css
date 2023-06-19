@@ -1021,3 +1021,10 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     height: 125px;
     padding: 5px;
   }
+
+
+
+  /* send message randomly */
+  .favicon-image {
+    color: var(--color-primary);
+  }
