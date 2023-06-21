@@ -17,3 +17,13 @@ class Appointment(models.Model):
     
     class Meta:
         ordering = ["-sent_date"]
+
+
+class Doctor(models.Model):
+    image = models.ImageField(null=True, blank=True)
+    name = models.CharField(max_length=60)
+    mobile = models.IntegerField()
+    special = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name

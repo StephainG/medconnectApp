@@ -19,13 +19,13 @@
     .emergency {
         display: flex;
         justify-content: space-evenly;
-        margin: 40px 0;
+        margin: 12px 0;
     }
     .for-button {
         margin: auto 0;
     }
     .col{
-        margin: 20px 0;
+        margin: 12px 0;
     }
     img {
         border-radius: 50%;
@@ -40,11 +40,13 @@
             </div>
             <hr width="50%" style="margin: auto;">
             <div class="col">
+                {% for i in doc %}
                 <div class="emergency">
                     <div class="about">
-                        <img src="{% static 'images/person-01.jpg' %}" alt="Doctor to call" width="100" height="100" class="card-avatar">
-                        <p>Dr Adeseye Sylvester</p>
-                        <p>Specializes in all form of endocrinal diseases</p>
+                        <img src={{i.image}} alt="Doctor to call" width="100" height="100" class="card-avatar">
+                        <p>{{i.name}}</p>
+                        <p>{{i.mobile}}</p>
+                        <p>{{i.special}}</p>
                     </div>
                     <div class="for-button">
                         <button class="btn btn-danger btn-lg">Call</button>
@@ -52,29 +54,7 @@
                     </div>
                 </div>
                 <hr width="50%" style="margin: auto;">
-                <div class="emergency">
-                    <div class="about">
-                        <img src="{% static 'images/person-02.jpg' %}" alt="Doctor to call" width="100" height="100" class="card-avatar">
-                        <p>Dr Adeseye Sylvester</p>
-                        <p>Specializes in all form of endocrinal diseases</p>
-                    </div>
-                    <div class="for-button">
-                        <button class="btn btn-danger btn-lg">Call</button>
-                        <button class="btn btn-danger btn-lg">Message</button>
-                    </div>
-                </div>
-                <hr width="50%" style="margin: auto;">
-                <div class="emergency">
-                    <div class="about">
-                        <img src="{% static 'images/person-01.jpg' %}" alt="Doctor to call" width="100" height="100" class="card-avatar">
-                        <p>Dr Adeseye Sylvester</p>
-                        <p>Specializes in all form of endocrinal diseases</p>
-                    </div>
-                    <div class="for-button">
-                        <button class="btn btn-danger btn-lg">Call</button>
-                        <button class="btn btn-danger btn-lg">Message</button>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

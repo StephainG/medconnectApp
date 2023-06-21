@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import AppointmentTemplateView, ManageAppointmentTemplateView
+from .views import AppointmentTemplateView, ManageAppointmentTemplateView, Add_doctor
 
 
 urlpatterns = [
@@ -15,4 +15,8 @@ urlpatterns = [
     path('familyMed', views.familyMed, name='familyMed'),
     path('neurology', views.neurology, name='neurology'),
     path('psychiatry', views.psychiatry, name='psychiatry'),
+
+
+
+    path('add_doctor', Add_doctor, name='add_doctor'),
 ]

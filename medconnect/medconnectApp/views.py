@@ -1,5 +1,6 @@
 # from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -19,10 +20,15 @@ from .decorator import user_not_authenticated
 from .tokens import account_activation_token
 
 
+from django.conf import settings
+from django.views.generic.base import TemplateView
+
+
+
 # Create your views here.
 
-def home(request):
-    return render(request, 'index.html')
+# def home(request):
+#     return render(request, 'index.html')
 
 def activate(request, uidb64, token):
     User = get_user_model()
@@ -148,3 +154,22 @@ def profile(request, username):
         )
     
     return redirect("/")
+
+
+class HomeTemplateView(TemplateView):
+    template_name = "index.html"
+    
+    def post(self, request):
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        email = EmailMessage(
+            subject= f"{name} from doctor family.",
+            body=message,
+            from_email=settings.EMAIL_HOST_USER,
+            to=[settings.EMAIL_HOST_USER],
+            reply_to=[email]
+        )
+        email.send()
+        return HttpResponse("Email sent successfully!")

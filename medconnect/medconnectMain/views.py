@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
-from .models import Appointment
+from .models import Appointment, Doctor
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -11,7 +11,9 @@ import datetime
 from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.core.mail import EmailMessage, message
+
 from django.conf import settings
+
 
 # Create your views here.
 class AppointmentTemplateView(TemplateView):
@@ -59,21 +61,21 @@ class ManageAppointmentTemplateView(ListView):
             "date":date,
         }
 
-        # message = get_template('email.html').render(data)
-        # email = EmailMessage(
-        #     "About your appointment",
-        #     message,
-        #     settings.EMAIL_HOST_USER,
-        #     [appointment.email],
-        # )
-        # email.content_subtype = "html"
-        # email.send()
+        message = get_template('email.html').render(data)
+        email = EmailMessage(
+            "About your appointment",
+            message,
+            settings.EMAIL_HOST_USER,
+            [appointment.email],
+        )
+        email.content_subtype = "html"
+        email.send()
 
         messages.add_message(request, messages.SUCCESS, f"You accepted the appointment of {appointment.first_name}")
         return HttpResponseRedirect(request.path)
 
 
-    def get_context_data(self,*args, **kwargs):
+    def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         appointments = Appointment.objects.all()
         context.update({   
@@ -81,6 +83,31 @@ class ManageAppointmentTemplateView(ListView):
         })
         return context
     
+def Add_doctor(request):
+    error = ""
+    # if not request.user.is_staff:
+    #     return redirect('login')
+    
+    if request.method == "POST":
+        i = request.POST.get('image')
+        n = request.POST.get('name')
+        m = request.POST.get('mobile')
+        sp = request.POST.get('special')
+
+        try:
+            Doctor.objects.create(image = i, name = n, mobile = m, special = sp)
+            error = "no"
+        except:
+            error = "yes"
+    d = {'error':error}
+    return render(request, 'add_doctor.html', d)
+
+def emergency(request):
+    # if not request.user.is_staff:
+    #     return redirect('login')
+    doc = Doctor.objects.all()
+    d = {'doc':doc}
+    return render(request, 'emergency.html', d)
 
 def signout(request):
     logout(request)
@@ -105,5 +132,5 @@ def neurology(request):
 def psychiatry(request):
     return render(request, 'services/psychiatry.html')
 
-def emergency(request):
-    return render(request, 'emergency.html')
+# def emergency(request):
+#     return render(request, 'emergency.html')
