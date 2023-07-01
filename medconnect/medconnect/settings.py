@@ -145,6 +145,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+LOGIN_REDIRECT_URL = '/'
+
 AUTHENTICATION_BACKENDS = ['medconnectApp.backend.EmailBackend']
 
 RECAPTCHA_PUBLIC_KEY = '6LeDLngmAAAAAFd8ubuYFMxK06GLBswgB1Z1psF7'

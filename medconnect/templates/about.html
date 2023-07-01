@@ -1,0 +1,216 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+</head>
+<style>
+    h1 {
+        opacity: 0.8;
+    }
+    h3, p {
+        opacity: 0.6;
+    }
+    .container-about {
+        position: relative;
+        height: 50vh;
+        background-image: url('static/images/about-background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+
+    .container-about::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(8px);
+        pointer-events: none;
+    }
+
+    .container-about-sub .text-center {
+        font-size: 48px;
+        color: white;
+        line-height: 0;
+    }
+    .container-about-sub .col {
+        padding: 120px 0;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        padding: 20px;
+        text-align: center;
+    }
+    .second-section-about {
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 32px;
+    }
+    .image-list {
+        list-style-type: none;
+        padding: 0;
+        margin-left: 32px;
+    }
+
+    .image-list li {
+        padding-left: 40px;
+        background-image: url('static/images/circle.png');
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 20px;
+        line-height: 52px;
+    }
+    .about-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+    }
+</style>
+{% include 'navbar.html' %}
+<section>
+    <div class="container-fluid container-about">
+        <div class="row container-about-sub">
+            <div class="col">
+                <h1 class="text-center">About MedConnect</h1>
+                <h4 class="text-center" style="font-size: 24px;"> Revolutionizing Healthcare Communication</h4><br>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="second-section-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2 my-auto">
+                <h1>Our Mission Statement</h1>
+            </div>
+            <div class="col-1-2 my-auto">
+                <p>Through its user-friendly online application, MedConnect is a cutting-edge technology firm committed to transforming healthcare communication. 
+                    Our goal is to make it simpler and more enjoyable for patients and doctors to communicate, making it less difficult to set up appointments, ask for medical advice, 
+                    and use remote healthcare services. <br><br>
+                    In order to ensure effective and efficient communication between patients and doctors and better healthcare results, 
+                    we work to close the communication gap between them.</p><br>
+
+                    <div class="d-flex">
+                        <a href="" class="button p-4">Sign up with us</a>
+                        <a href="" class="button mx-3 p-4">Contact us</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="second-section-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2 my-auto">
+                <h1>Our Vision</h1>
+                    <h3>Transforming Healthcare Access and Delivery</h3>
+                    <p>At MedConnect, we see a time when everyone can readily access healthcare services, regardless of location or physical capabilities. 
+                        Our objective is to provide patients with the instruments and materials they require to easily manage their healthcare demands. 
+                        By utilizing technology, we hope to improve the healthcare process and make it more patient-centric, practical, and effective.</p>
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/about.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="second-section-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/family-medicine.jpg' %}" alt="" width="100%">
+            </div>
+            <div class="col-1-2 my-auto">
+                <h1>Key Features of the MedConnect Online Application</h1>
+                <ul class="image-list">
+                    <li><p>Easy Appointment Scheduling</p></li>
+                    <li><p>Secure Communication Channels</p></li>
+                    <li><p>Virtual Consultations</p></li>
+                    <li><p>Access to Healthcare Services</p></li>
+                    <li><p>User-Friendly Interface</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="second-section-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2 my-auto">
+                <h1>Commitment to Excellence</h1>
+                <p>At MedConnect, we're dedicated to doing all possible to be the best. To improve the functionality, usability, and security of our web application, we consistently make research and development investments. 
+                    We actively solicit customer input and take into account their recommendations to enhance the platform and make sure it meets their <br><br>
+                    We place a high priority on data privacy and abide by industry standards for the security of sensitive data. 
+                    Our strong security procedures protect patient data while guaranteeing confidentiality and adhering to legal regulations.</p>
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/commitment.jpg' %}" alt="" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="second-section-about">
+    <div class="container">
+        <h1 class="text-center">Our Team</h1> <br><br>
+        <div class="row">
+            <div class="col text-center">
+                <img src="{% static 'images/commitment.jpg' %}" alt="" width="64px" height="64px" style="border-radius: 50%;"><br><br>
+                <h2>Oni Kunle</h2>
+                <h3 style="color: #54BBFF;">Software Engineer and CEO</h3>
+                <p>A skilled programmer and the CEO of MedConect. He steers the company with the knowledge and a clear vision while being driven by his passion for technology and success.</p>
+            </div>
+            <div class="col text-center">
+                <img src="{% static 'images/commitment.jpg' %}" alt="" width="64px" height="64px" style="border-radius: 50%;"><br><br>
+                <h2>Adeseye Sylvester</h2>
+                <h3 style="color: #54BBFF;">Chief Medical Director</h3>
+                <p>A medical professional at our hospital with exceptional training and compassion. Dr. Adeseye is vital to offering top-notch healthcare services because of his commitment to patient care and depth of medical knowledge.</p>
+            </div>
+            <div class="col text-center">
+                <img src="{% static 'images/commitment.jpg' %}" alt="" width="64px" height="64px" style="border-radius: 50%;"><br><br>
+                <h2>Asamu Folasade</h2>
+                <h3 style="color: #54BBFF;">Data Analyst</h3>
+                <p>A knowledgeable and perceptive data analyst in our hospital. She is dedicated to using data to support informed decision-making and is a key player in the transformation of healthcare.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="second-section-about">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1>MedConnect</h1>
+                <h3>Together, We're Transforming Healthcare — Join Us!</h3>
+                <p>MedConnect cordially invites patients, doctors, and other healthcare professionals to join us in our effort to revolutionize healthcare communication. 
+                    Together, we can create a future in which working with healthcare providers and obtaining healthcare services is simple, practical, and patient-focused.</p>
+                <p>Experience the power of user-friendly online healthcare communication by signing up for MedConnect now. Together, let's create a world that is healthier and more interconnected.</p>
+            </div>
+        </div>
+        <div class="d-flex about-button">
+            <a href="" class="button p-4">Sign up with us</a>
+            <a href="" class="button mx-3 p-4">Contact us</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,170 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+</head>
+<style>
+    h1 {
+        opacity: 0.8;
+    }
+    h3, h4, p {
+        opacity: 0.6;
+    }
+    .myDiv:hover {
+        box-shadow: 0 0 12px rgba(121, 120, 120, 0.377);
+        transform: translateY(-1em);
+    }
+    .send-button {
+        width: 100%;
+        height: 64px;
+        background-color: #54BBFF;
+        color: white;
+    }
+    .send-button:hover {
+        background-color: #54bbff8c;
+        color: white;
+    }
+    .container-about {
+        position: relative;
+        height: 50vh;
+        background-image: url('static/images/contact.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+
+    .container-about::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(6px);
+        pointer-events: none;
+    }
+    .container-about-sub .text-center {
+        font-size: 48px;
+        color: white;
+        line-height: 0;
+    }
+    .container-about-sub .col {
+        padding: 120px 0;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        padding: 20px;
+        text-align: center;
+    }
+    .second-section-about {
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 32px;
+    }
+
+    .second-section-about .contact-information-box {
+        box-shadow: 0 0 12px rgba(121, 120, 120, 0.8);
+        padding: 20px 36px;
+    }
+</style>
+
+{% include 'navbar.html' %}
+<section>
+    <div class="container-fluid container-about">
+        <div class="row container-about-sub">
+            <div class="col">
+                <h1 class="text-center text-white">Contact</h1>
+                <h4 class="text-center text-white" style="font-size: 24px;">We’d love to hear from you!</h4><br>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="second-section-about">
+    <div class="container contact-information-box">
+        <h1 class="text-center" style="color: #54BBFF;">Contact information</h1><br><br>
+        <div class="row justify-content-center text-center mt-5">
+            <div class="col myDiv">
+                <h3 class="navbar-text"><i class="fa fa-phone"></i> Contact</h3>
+                <p class="text-danger fw-bold mt-3"><a href="tel:+234-810-958-1485">+234-810-958-1485</a></p>
+            </div>
+            <div class="col myDiv">
+                <h3 class="navbar-text"><i class="fa fa-envelope"></i> Send Email</h3>
+                <p class="fw-bold mt-3"><a href="mailto:onikunle03@gmail.com">onikunle03@gmail.com</a></p>
+            </div>
+            <div class="col myDiv">
+                <h3 class="navbar-text"><i class="fa fa-address-book"></i> Office Address</h3>
+                <p class="fw-bold mt-3"><a href="http://maps.google.com/maps?q=orogun">No<sup>2</sup> Orogun street, Ibadan<br>
+                    Ibadan, Oyo state.</a></p>
+            </div>
+            <div class="col myDiv">
+                <h3 class="navbar-text"><i class="fa fa-clock"></i> Office Time</h3>
+                <p class="fw-bold mt-3">9AM - 11PM</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr width="50%" style="margin: auto;">
+
+<section id="contact" class="second-section-about" style="height: 100vh;">
+    <div class="container contact-information-box">
+        <div class="row">
+          <div class="col-sm">
+            <div class="contact-map">
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=Orogun+Ibadan&amp;key=AIzaSyBSFRN6WWGYwmFi498qXXsD2UwkbmD74v4" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width: 100%; height: 600px;"></iframe>
+            </div>
+          </div>
+  
+          <!-- Contact form -->
+          
+          <div class="col-sm">
+            <h1 style="color: #54BBFF;">Send us a message</h1>
+            <p>We offer a 24/7 service and we will respond to your message as soon as possible</p>
+            <form role="form" name="ajax-form" id="ajax-form" method="post" class="form-main" action="{% url 'home' %}">
+            {% csrf_token %}
+              <div class="form-group">
+                <label for="name2">Name</label>
+                <input class="form-control" id="name2" name="name" type="text" placeholder="name">
+                <div class="error" id="err-name" style="display: none;">Please enter name</div>
+              </div>
+              <div class="form-group">
+                <label for="email2">Email</label>
+                <input class="form-control" id="email2" name="email" type="text" placeholder="email">
+                <div class="error" id="err-emailvld" style="display: none;">E-mail is not a valid format</div>
+              </div>
+              <div class="form-group">
+                <label for="message2">Message</label>
+                <textarea class="form-control" id="message2" name="message" rows="5" placeholder="message">Message</textarea>
+                <div class="error" id="err-message" style="display: none;">Please enter message</div>
+              </div>
+              <div class="form-group">            
+                  <button type="submit" class="btn send-button" id="send">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </section>
+
+
+
+{% endblock %}

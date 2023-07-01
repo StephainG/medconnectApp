@@ -27,8 +27,8 @@ from django.views.generic.base import TemplateView
 
 # Create your views here.
 
-# def home(request):
-#     return render(request, 'index.html')
+def home(request):
+    return render(request, 'index.html')
 
 def activate(request, uidb64, token):
     User = get_user_model()
@@ -85,7 +85,11 @@ def register(request):
     else:
         form = UserRegistrationForm()
 
-    return render(request, 'authenticate/register.html', {'form': form})
+    return render(
+        request = request,
+        template_name= 'authenticate/register.html', 
+        context= {'form': form}
+    )
 
 @login_required
 def logout_view(request):
@@ -139,9 +143,8 @@ def profile(request, username):
             return redirect("profile", user_form.username)
         
 
-        else:
-            for error in list(form.errors.values()):
-                messages.error(request, error)
+        for error in list(form.errors.values()):
+            messages.error(request, error)
 
     user = get_user_model().objects.filter(username=username).first()
     if user:
@@ -173,3 +176,9 @@ class HomeTemplateView(TemplateView):
         )
         email.send()
         return HttpResponse("Email sent successfully!")
+    
+def about(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request, 'contact.html')

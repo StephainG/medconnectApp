@@ -3,20 +3,21 @@
 {% block content %}
 <div class="container">
     <div class="content-section col-lg-12 col-md-12 col-sm-12 tutorial-style" style="min-height:65vh;">
-        <legend class="border-bottom mb-4">Profile Information:</legend>
+        <legend class="border-bottom mb-4 fs-1 fw-bolder">PROFILE INFORMATION</legend>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="media">
                 <img class="rounded-circle account-img profile-image", src="{{ form.instance.image.url }}">
                 <div class="media-body">
+                    <br>
                     <h2 class="account-heading">{{ form.instance.username }}
                         <small class="text-muted">({{ form.instance.status }})</small>
                     </h2>
-                    <p class="text-secondary">{{ form.instance.first_name }} {{ form.instance.last_name }}</p>
-                    <p class="text-secondary">{{ form.instance.email }}</p>
-                    <p class="text-secondary">{{ form.instance.phone_number }}</p>
-                    <p class="text-secondary">{{ form.instance.address }}</p>
-                    <p class="text-secondary">{{ form.instance.status }}</p>
+                    <p class="text-secondary"><span class="fw-bolder">Name:</span> {{ form.instance.first_name }} {{ form.instance.last_name }}</p>
+                    <p class="text-secondary"><span class="fw-bolder">Email Address:</span> {{ form.instance.email }}</p>
+                    <p class="text-secondary"><span class="fw-bolder">Telephone number:</span> {{ form.instance.phone_number }}</p>
+                    <p class="text-secondary"><span class="fw-bolder">Address:</span> {{ form.instance.address }}</p>
+                    <p class="text-secondary"><span class="fw-bolder">Subscription Type:</span> {{ form.instance.status }}</p>
                 </div>
             </div>
     

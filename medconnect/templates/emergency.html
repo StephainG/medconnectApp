@@ -43,14 +43,14 @@
                 {% for i in doc %}
                 <div class="emergency">
                     <div class="about">
-                        <img src="{{i.image}}" alt="Doctor to call" width="100" height="100" class="card-avatar">
+                        <img src="{{ doctor.image.url }}" alt="Doctor to call" width="100" height="100" class="card-avatar">
                         <p>{{i.name}}</p>
                         <p>{{i.mobile}}</p>
                         <p>{{i.special}}</p>
                     </div>
                     <div class="for-button">
                         <button class="btn btn-danger btn-lg">Call</button>
-                        <button class="btn btn-danger btn-lg">Message</button>
+                        <button class="btn btn-info btn-lg">Message</button>
                     </div>
                 </div>
                 <hr width="50%" style="margin: auto;">
