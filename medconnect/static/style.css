@@ -858,7 +858,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   input[type=email]:focus,
   input[type=password]:focus,
   textarea:focus {
-    border: .1rem solid var(--color-grey);
+    border: .1em solid var(--color-grey);
   }
   
   ::placeholder {

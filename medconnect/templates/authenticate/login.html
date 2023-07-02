@@ -27,21 +27,21 @@
                 <div class="content-section">
                     <form method="POST">
                         {% csrf_token %}
-                        <fieldset class="form-group">
-                            <legend class="border-bottom mb-4"><h1 style="color: #54BBFF;">Login</h1></legend>
+                        <fieldset class="form-group" style="background-color: transparent;">
+                            <legend class="border-bottom mb-4"><h1 style="color: #54BBFF;">Sign In</h1></legend>
                                 {{ form|crispy }}
+                                <div class="text-center mt-3">
+                                    <button class="btn" style="width: 100%; height: 64px; background-color: #54BBFF; color: white;" type="submit">Login</button>
+                                </div>
                         </fieldset>
-                        <div class="text-center">
-                            <button class="btn" style="width: 100%; height: 64px; background-color: #54BBFF;" type="submit">Login</button>
-                        </div>
                     </form>
-                    <div class="pt-3" style="margin-left: 8px;">
-                        <small class="text-muted">
-                            Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
-                        </small><br>
-                        <small class="text-muted">
-                            <a href="/">Forgot password?</a>
-                        </small>
+                    <div class="pt-3" style="margin-left: 8px; display: flex; justify-content:space-between;">
+                        <p class="text-muted">
+                            Need An Account? <a class="ml-2" href="{% url 'register' %}" style="color: #54BBFF;">Sign Up Now</a>
+                        </p><br>
+                        <p class="text-muted">
+                            <a href="/" style="color: #54BBFF;">FORGOT PASSWORD?</a>
+                        </p>
                     </div>
                 </div>
             </div>

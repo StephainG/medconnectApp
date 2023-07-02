@@ -12,6 +12,12 @@ class UserRegistrationForm(UserCreationForm):
         model = get_user_model()
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
+    def __init__(self, *args, **kwargs):
+        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['email'].help_text = None
+        self.fields['password1'].help_text = None
+        self.fields['password2'].help_text = None
+
     def save(self, commit=True):
         user = super(UserRegistrationForm, self).save(commit=False)
         user.email = self.cleaned_data['email']
@@ -23,6 +29,7 @@ class UserRegistrationForm(UserCreationForm):
 class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
+
 
     username = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control'}),
