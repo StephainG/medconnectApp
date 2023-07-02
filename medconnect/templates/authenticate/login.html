@@ -1,6 +1,8 @@
+{% extends "index.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +19,7 @@
 
     <script src="https://kit.fontawesome.com/c3124c61aa.js" crossorigin="anonymous"></script>
 </head>
+{% include 'navbar.html' %}
 <body>
     <div class="container">
         <div class="row align-items-center" style="min-height: 100vh">
@@ -25,14 +28,14 @@
                     <form method="POST">
                         {% csrf_token %}
                         <fieldset class="form-group">
-                            <legend class="border-bottom mb-4"><h3 class="text-center text-primary">Login</h3></legend>
+                            <legend class="border-bottom mb-4"><h1 style="color: #54BBFF;">Login</h1></legend>
                                 {{ form|crispy }}
                         </fieldset>
-                        <div class="form-group text-center">
-                            <button class="btn btn-primary" style="width: 25%;" type="submit">Login</button>
+                        <div class="text-center">
+                            <button class="btn" style="width: 100%; height: 64px; background-color: #54BBFF;" type="submit">Login</button>
                         </div>
                     </form>
-                    <div class="pt-3 text-center">
+                    <div class="pt-3" style="margin-left: 8px;">
                         <small class="text-muted">
                             Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
                         </small><br>
@@ -42,6 +45,10 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <img src="{% static 'images/login-bg.png' %}" alt="" width="100%" height="600px">
+            </div>
         </div>
     </div>
 </body>
+{% endblock %}

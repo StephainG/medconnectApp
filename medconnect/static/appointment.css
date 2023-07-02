@@ -1,11 +1,11 @@
 :root {
-    --color-primary: #D73953;
+    --color-primary: #54BBFF;
     --color-black:  #090909;
     --color-white: #ffffff;
     --color-grey: #a0a0a0;
     --color-light-grey: #f3f3f3;
     --color-dark-grey: #353535;
-    --color-red: #cd3e65;
+    --color-red: #54BBFF;
     --color-green: #08805b;
     --color-blue: #00BCD4;
 }
@@ -90,13 +90,13 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   ============================= */
 
   :root {
-    --color-primary: #D73953;
+    --color-primary: #54BBFF;
     --color-black:  #090909;
     --color-white: #ffffff;
     --color-grey: #a0a0a0;
     --color-light-grey: #f3f3f3;
     --color-dark-grey: #353535;
-    --color-red: #cd3e65;
+    --color-red: #54BBFF;
     --color-green: #08805b;
   
     --text-color: var(--color-black);
@@ -156,7 +156,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --button-display: inline-block;
     --button-padding: 0.75rem 2.5rem;
     --button-border: var(--color-primary) solid 0.2rem;
-    --button-color: var(--color-black);
+    --button-color: var(--color-white);
     --button-text-decoration: none;
     --button-font-size: var(--font-size-large);
     --button-hover-color: var(--color-white);
@@ -211,6 +211,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   }
   
   .button {
+    background: var(--color-primary);
     display: var(--button-display);
     padding: var(--button-padding);
     border: var(--button-border);

@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 
 
-<header class="header"  data-section-theme="white">
+<header class="header"  data-section-theme="dark" style="background-color: #54BBFF;">
     <div class="container">
       <div class="header-container">
         <div class="header-logo">
@@ -16,22 +16,22 @@
         <nav class="navbar-menu">
             <ul class="nav">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="/" class="nav-link text-white">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#services" class="nav-link text-white">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="{% url 'about' %}" class="nav-link text-white">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#latest_news" class="nav-link">Latest news</a>
+                    <a href="#latest_news" class="nav-link text-white">Latest news</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#testimonial" class="nav-link">Testimonials</a>
+                    <a href="#testimonial" class="nav-link text-white">Testimonials</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+                    <a href="{% url 'contact' %}" class="nav-link text-white">Contact</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
