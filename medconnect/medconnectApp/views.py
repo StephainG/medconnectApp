@@ -73,10 +73,12 @@ def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST) 
         if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
-            user.save()
-            activateEmail(request, user, form.cleaned_data.get('email'))
+            user = form.save()
+            login(request, user)
+            #user = form.save(commit=False)
+            # user.is_active = False
+            # user.save()
+            # activateEmail(request, user, form.cleaned_data.get('email'))
             return redirect('/')
         else:
             for error in list(form.errors.values()):

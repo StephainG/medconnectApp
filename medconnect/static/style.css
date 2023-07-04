@@ -25,6 +25,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --color-light-grey: #f3f3f3;
     --color-dark-grey: #353535;
     --color-red: #54bbffc4;
+    --color-blue: #54bbff2d;
     --color-green: #08805b;
   
     --text-color: var(--color-black);
@@ -77,8 +78,9 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --nav-item-font-size: var(--font-size-medium);
     --nav-item-letter-spacing: .04rem;
     --nav-item-display: inline-block;
-    --nav-item-margin: 0 0 0 2rem;
-    --nav-item-link-hover: var(--color-dark-grey);
+    --nav-item-margin: 0 0 0 6rem;
+    --nav-item-link-hover: var(--color-white);
+    --nav-item-link-background-hover: var((--color-grey))
   
     /** BUTTON **/
     --button-display: inline-block;
@@ -168,6 +170,11 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     background: var(--color-white);
   }
 
+  .book-appointment {
+    background-color: #54BBFF;
+    color: white;
+  }
+
   @media screen and (max-width:480px){
     html {
         font-size: 57%;
@@ -245,12 +252,13 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     display: block;
     padding: 0.5rem 0;
     position: relative;
-    color: var(--color-black);
+    color: var(--color-white);
   }
   
   .nav .nav-link:hover {
     color: var(--nav-item-link-hover);
     text-decoration: none;
+    background: var(--nav-item-link-background-hover);
   }
   
   .nav .nav-link::before {
@@ -258,7 +266,6 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: var(--color-white);
     width: 0;
     height: 0.2rem;
     transition: var(--transition-duration) var(--transition-cubic-bezier);
@@ -444,9 +451,9 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   
   [data-section-theme="dark"] {
     --button-color: var(--color-white);
-    --text-color: var(--color-white);
+    --text-color: var(--color-dark-grey);
     --section-title-color: var(--color-white);
-    background: var(--color-primary);
+    background: var(--color-blue);
   }
   
   /* Section HERO

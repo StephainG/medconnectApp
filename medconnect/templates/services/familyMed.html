@@ -1,5 +1,7 @@
+{% extends "index.html" %}
 {% load static %}
 
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,23 +13,28 @@
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'style.css' %}">
-
-    <script src="https://kit.fontawesome.com/c3124c61aa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 </head>
-<body>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1>Surgery at MedConnect</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi sit, minus laudantium asperiores nam blanditiis ut ea laboriosam! Nobis magni amet dignissimos assumenda reiciendis eos est veritatis ab voluptatibus odit?</p>
+<style>
+    .column {
+        height: 80vh;
+    }
+</style>
+{% include 'navbar.html' %}
+<section style="height: 80vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col column" style="margin: 64px 0;">
+                <h1>Family Medicine at MedConnect</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi sit, minus laudantium asperiores nam blanditiis ut ea laboriosam! Nobis magni amet dignissimos assumenda reiciendis eos est veritatis ab voluptatibus odit?</p>
+                <div class="d-flex">
+                    <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
                 </div>
             </div>
-            <h2>Types of Surgery we carry out at MedConnect</h2>
+            <div class="col column">
+                <img src="{% static 'images/medc.jpg' %}" alt="" height="100%" width="100%">
+            </div>
         </div>
-    </section>
-    <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-</body>
-</html>
+    </div>
+</section>
+{% endblock %}

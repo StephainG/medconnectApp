@@ -14,12 +14,33 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/c3124c61aa.js" crossorigin="anonymous"></script>
 </head>
-<body class="article-page" style="background-color: #54bbff11;">
+<style>
+  p {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.572);
+  }
+    /* Key feature in medConnect */
+    .image-list {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 32px;
+  }
+
+  .image-list li {
+      padding-left: 40px;
+      background-image: url('static/images/circle.png');
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 20px;
+      line-height: 52px;
+  }
+</style>
+<body class="article-page" style="background-color: #7e7e7e11;">
 {% block content %}
+{% include 'navbar.html' %}
 {% if "" in request.path %}
-<section class="header-section" style="background-image: url('static/images/foreground.jpg');">
+<section class="header-section" style="background-image: url('static/images/foreground.jpg'); height: 100vh;">
 {% endif %}
-  {% include 'navbar.html' %}
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -28,17 +49,24 @@
     </div>
   </div>
 
-  <section class="section-hero hero-homepage" data-section-theme="white">
+  <section class="section-hero hero-homepage">
     <div class="container">
       <div class="row">
         <div class="col-6 px-0">
           <div class="section-body">
             <section class="section-inner">
-              <h2 class="section-title">We render top quality medical services</h2>
+              <h2 class="section-title" style="margin-bottom: .8rem;">We render top quality medical services</h2>
+              <p style="margin-bottom: 4.8rem; color: rgba(0, 0, 0, 0.52);">Elevating the Standard of Medical Excellence, Your Journey to Better Health Starts Here</p>
+              {% if user.is_authenticated %}
               <div class="d-flex">
-                <a href="{% url 'appointment' %}" class="button mx-3 p-4">Book Appointment</a>
-                <a href="{% url 'emergency' %}" class="button mx-3 p-4">Emergency</a>
+                <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
+                <a href="{% url 'emergency' %}" class="button emergency">Emergency</a>
               </div>
+              {% else %}
+              <div class="d-flex">
+                <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+              </div>
+              {% endif %}
             </section>
           </div>
         </div>
@@ -47,37 +75,37 @@
   </section>
 </section>
 
-
-<section id="about" class="section section-about-us">
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="background-color: white; height: 100vh;">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-title">About Us</h2>
-      <p class="section-tagline">Everything about us</p>
-    </header>
-    <div class="section-body">
       <div class="row">
         <div class="col-1-2">
-          
-          <img src="{% static 'images/about.png' %}" alt="">
-
+            <img src="{% static 'images/medc.jpg' %}" alt="" width="100%" height="100%">
         </div>
         <div class="col-1-2">
-          <h3>Who are we</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, omnis expedita! Eum, praesentium cumque accusantium rem, sit quaerat est nisi ratione, deserunt ducimus quidem iste dicta quibusdam atque maxime cum!</p>
-          <h3>Our culture</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, omnis expedita! Eum, praesentium cumque accusantium rem, sit quaerat est nisi ratione, deserunt ducimus quidem iste dicta quibusdam atque maxime cum!</p>
-          <h3>How we work</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, omnis expedita! Eum, praesentium cumque accusantium rem, sit quaerat est nisi ratione, deserunt ducimus quidem iste dicta quibusdam atque maxime cum!</p>
+          <header class="section-header" style="text-align: left;">
+            <h1 class="section-title">Welcome to MedConnect</h1>
+            <p class="section-tagline">Where personalized healthcare meets convenience</p>
+          </header>
+          <p style="line-height: 32px; margin-bottom: 32px;">At MedConnect, we prioritize your well-being by connecting you with a diverse 
+            team of experienced doctors and healthcare providers. Say goodbye to long wait times and 
+            the hassle of traditional appointment scheduling. With our user-friendly platform, 
+            you can easily book appointments, 
+            consult with doctors, and receive quality care, all from the comfort of your own home.</p>
+            {% if user.is_authenticated %}
+            <div class="d-flex">
+              <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
+            </div>
+            {% else %}
+            <div class="d-flex">
+              <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+            </div>
+            {% endif %}
         </div>
       </div>
-    </div>
-    <div class="section-footer">
-      <a href="{% url 'about' %}" class="button">Learn more about us</a>
-    </div>
   </div>
 </section>
-<hr width="50%" style="margin: auto;">
-<section id="services" class="section section-works" data-section-theme="white">
+
+<section id="services" class="section section-works">
   <div class="container">
     <header class="section-header">
       <h2 class="section-title">Our Services</h2>
@@ -185,8 +213,46 @@
     </div>
   </div>
 </section>
-<hr width="50%" style="margin: auto;">
-<section id="latest_news" class="section section-latest-news">
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="background-color: white; height: 100vh;">
+  <div class="container">
+      <div class="row">
+          <div class="col-1-2">
+              <img src="{% static 'images/family-medicine.jpg' %}" alt="" width="100%">
+          </div>
+          <div class="col-1-2">
+              <h1>Key Features of the MedConnect Online Application</h1>
+              <ul class="image-list">
+                  <li><p>Easy Appointment Scheduling</p></li>
+                  <li><p>Secure Communication Channels</p></li>
+                  <li><p>Virtual Consultations</p></li>
+                  <li><p>Access to Healthcare Services</p></li>
+                  <li><p>User-Friendly Interface</p></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 100vh;">
+  <div class="container">
+      <div class="row">
+          <div class="col-1-2">
+              <h1>Commitment to Excellence</h1>
+              <p>At MedConnect, we're dedicated to doing all possible to be the best. To improve the functionality, usability, and security of our web application, 
+                  we consistently make research and development investments. 
+                  We actively solicit customer input and take into account their recommendations to enhance the platform and make sure it meets their
+                  We place a high priority on data privacy and abide by industry standards for the security of sensitive data. 
+                  Our strong security procedures protect patient data while guaranteeing confidentiality and adhering to legal regulations.</p>
+          </div>
+          <div class="col-1-2">
+            <img src="{% static 'images/commitment.jpg' %}" alt="" width="100%">
+          </div>
+      </div>
+  </div>
+</section>
+
+<section id="latest_news" class="section section-latest-news" style="height: 100vh; background-color: white;">
   <div class="container">
     <header class="section-header">
       <h2 class="section-title">Latest News</h2>
@@ -225,7 +291,6 @@
     </div>
   </div>
 </section>
-<hr width="50%" style="margin: auto;">
 
 
 <section id="testimonial" class="section section-testimonial">
@@ -302,9 +367,8 @@
     </div>
   </div>
 </section>
-<hr width="50%" style="margin: auto;">
 
-<section id="contact" class="section section-contact">
+<section id="contact" class="section section-contact" style="background-color: white;">
   <div class="container">
     <header class="section-header">
       <h2 class="section-title">Contact</h2>
@@ -376,7 +440,7 @@
 {% block about %}
 {% endblock %}
 
-<footer class="footer" data-section-theme="dark">
+<footer class="footer" data-section-theme="dark" style="background-color: #54bbff4b;">
   <div  class="container">
     <div class="row">
       <div class="col-1-2">

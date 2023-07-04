@@ -85,6 +85,9 @@
         box-shadow: 0 0 12px rgba(121, 120, 120, 0.8);
         padding: 20px 36px;
     }
+    .form-group {
+        background-color: transparent;
+    }
 </style>
 
 {% include 'navbar.html' %}
@@ -141,7 +144,7 @@
             <p>We offer a 24/7 service and we will respond to your message as soon as possible</p>
             <form role="form" name="ajax-form" id="ajax-form" method="post" class="form-main" action="{% url 'home' %}">
             {% csrf_token %}
-              <div class="form-group">
+              <div class="form-group;">
                 <label for="name2">Name</label>
                 <input class="form-control" id="name2" name="name" type="text" placeholder="name">
                 <div class="error" id="err-name" style="display: none;">Please enter name</div>

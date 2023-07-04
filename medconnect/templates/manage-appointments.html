@@ -1,7 +1,7 @@
-{% extends "navbar.html" %}
+{% extends "index.html" %}
+{% load static %}
 
 {% block content %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,76 +12,10 @@
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
 </head>
 
 <style>
-   :root {
-    --color-primary: #D73953;
-    --color-black:  #090909;
-    --color-white: #ffffff;
-    --color-grey: #a0a0a0;
-    --color-light-grey: #f3f3f3;
-    --color-dark-grey: #353535;
-    --color-red: #cd3e65;
-    --color-green: #08805b;
-  
-    --text-color: var(--color-black);
-    --valid-color: var(--color-green);
-    --error-color: var(--color-red);
-  
-    --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  
-    --font-size-small: 1.2rem;
-    --font-size-medium: 1.6rem;
-    --font-size-large: 1.8rem;
-    --font-size-x-large: 2.3rem;
-    --font-size-xx-large: 4.8rem;
-  
-    --font-weight-regular: 400;
-    --font-weight-bold: 700;
-  
-    --line-height-small: 1.2;
-    --line-height-base: 1.5;
-    --line-height-big: 1.8;
-  
-    /** SECTION **/
-    --section-padding: 5rem 0;
-    --section-header-padding: 0 0 3rem;
-    --section-header-align: center;
-    --section-title-font-size: var(--font-size-xx-large);
-    --section-title-font-weight: var(--font-weight-bold);
-    --section-title-line-height: var(--line-height-small);
-    --section-title-margin: 0;
-    --section-title-color: var(--color-black);
-    --section-tagline-transform: uppercase;
-    --section-tagline-color: var(--color-primary);
-    --section-tagline-font-family: var(--font-family-headings);
-    --section-tagline-font-weight: var(--font-weight-bold);
-    --section-tagline-margin: 0;
-    --section-body-padding: 2rem 0 4rem;
-    --section-footer-padding: 3rem 0 0;
-    --section-footer-align: center;
-  
-
-  
-    /** BUTTON **/
-    --button-display: inline-block;
-    --button-padding: 0.75rem 2.5rem;
-    --button-border: var(--color-primary) solid 0.2rem;
-    --button-color: var(--color-black);
-    --button-text-decoration: none;
-    --button-font-size: var(--font-size-large);
-    --button-hover-color: var(--color-white);
-    --button-hover-text-decoration: none;
-    --button-hover-background: var(--color-primary);
-  
-    /** MOTION **/
-    --transition-duration: .3s;
-    --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
-  }
-
   .card-margin {
       margin-bottom: 1.875rem;
   }
@@ -427,84 +361,80 @@
     background-color: var(--color-red);
   }
 </style>
-
+{% include 'navbar.html' %}
 {% if messages %}
     <div class="card notification-card notification-invitation text-center">
         <div class="card-body">
-        {% for message in messages %}
+            {% for message in messages %}
                 <div class="card-title">{{message}} </div>
             {% endfor %}
         </div>
       </div>
 {% endif %}
 
-    <div class="container mt-5">
-        <div class="col-11 text-center mt-4 mb-4">
-            <h3>
+    <div class="container mt-5" style="padding-left: 0; padding-right: 0;">
+        <div class="col text-center">
+            <h1>
                 Manage appointments
-            </h3>
+            </h1>
         </div>
         <div class="row">
-
         {% for app in appointments %}
-            <div class="col-lg-4">
-                <div class="card card-margin">
-                    <div class="card-header no-border">
-                        <h5 class="card-title">{{app.first_name}} {{app.last_name}}</h5>
-                    </div>
-                    <div class="card-body pt-0">
-                        <div class="widget-49">
-                            <div class="widget-49-title-wrapper">
-                                <div class="widget-49-date-primary">
-                                    <span class="widget-49-date-day">{{app.sent_date|date:"d"}}</span>
-                                    <span class="widget-49-date-month">{{app.sent_date|date:"M"}}</span>
-                                </div>
-                                <div class="widget-49-meeting-info">
-                                    <span class="widget-49-pro-title">{{app.email}}</span>
-                                    <span class="widget-49-meeting-time">{{app.phone}}</span>
-                                </div>
-                            </div>
-                            <div class="widget-49-meeting-points">
-                                <span>{{app.request}}</span>
-                            </div>
-                            <hr class="w-100">
-                            {% if app.accepted == False %}
-                            <form method="POST" action="{% url 'manage' %}">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <input type="date" name="date" class="form-control mb-2" 
-                                    placeholder="dd-mm-yyyy" value=""
-                                    min="1997-01-01" max="2030-12-31">
-                                <input hidden="true" name="appointment-id" value="{{app.id}}">
-                                <input class="btn-block btn-primary form-control" type="submit" value="Accept">
-                            </div>
-                            </form>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div class="col-lg-4">
+              <div class="card card-margin">
+                  <div class="card-header no-border">
+                      <h5 class="card-title">{{app.first_name}} {{app.last_name}}</h5>
+                  </div>
+                  <div class="card-body pt-0">
+                      <div class="widget-49">
+                          <div class="widget-49-title-wrapper">
+                              <div class="widget-49-date-primary">
+                                  <span class="widget-49-date-day">{{app.sent_date|date:"d"}}</span>
+                                  <span class="widget-49-date-month">{{app.sent_date|date:"M"}}</span>
+                              </div>
+                              <div class="widget-49-meeting-info">
+                                  <span class="widget-49-pro-title">{{app.email}}</span>
+                                  <span class="widget-49-meeting-time">{{app.phone}}</span>
+                              </div>
+                          </div>
+                          <div class="widget-49-meeting-points">
+                              <span>{{app.request}}</span>
+                          </div>
+                          <hr class="w-100">
+                          {% if app.accepted == False %}
+                          <form method="POST" action="{% url 'manage' %}">
+                          {% csrf_token %}
+                          <div class="form-group">
+                              <input type="date" name="date" class="form-control mb-2" 
+                                  placeholder="dd-mm-yyyy" value=""
+                                  min="1997-01-01" max="2030-12-31">
+                              <input hidden="true" name="appointment-id" value="{{app.id}}">
+                              <input class="btn-block btn-primary form-control" type="submit" value="Accept">
+                          </div>
+                          </form>
+                          {% endif %}
+                      </div>
+                  </div>
+              </div>
+          </div>
         {% endfor %}
+    </div>
 
-        </div>
-
-        {% if is_paginated %}
-        <div class="wrapper">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    {% if page_obj.has_previous %}
-                    <li class="page-item"><a class="page-link" href="?page={{page_obj.prebious_page_number}}">Previous</a></li>
-                    {% endif %}
-                    {% for number in page_obj.paginator.page_range %}
-                    <li class="page-item"><a class="page-link" href="?page={{number}}">{{number}}</a></li>
-                    {% endfor %}
-                    {% if page_obj.has_next %}
-                    <li class="page-item"><a class="page-link" href="?page={{page_obj.prebious_page_number}}">Next</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-
-        {% endif %}
-
+    {% if is_paginated %}
+    <div class="wrapper">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{page_obj.prebious_page_number}}">Previous</a></li>
+                {% endif %}
+                {% for number in page_obj.paginator.page_range %}
+                <li class="page-item"><a class="page-link" href="?page={{number}}">{{number}}</a></li>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{page_obj.prebious_page_number}}">Next</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
 {% endblock %}

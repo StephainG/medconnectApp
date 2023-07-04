@@ -69,9 +69,12 @@ class ManageAppointmentTemplateView(ListView):
             [appointment.email],
         )
         email.content_subtype = "html"
-        email.send()
+        try:
+            email.send()
+        except Exception as e:
+            messages.error(request, f"There was an error sending the email: {str(e)}")
 
-        messages.add_message(request, messages.SUCCESS, f"You accepted the appointment of {appointment.first_name}")
+        messages.success(request, f"You accepted the appointment of {appointment.first_name}")
         return HttpResponseRedirect(request.path)
 
 
