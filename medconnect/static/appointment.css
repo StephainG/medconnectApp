@@ -1,15 +1,3 @@
-:root {
-    --color-primary: #54BBFF;
-    --color-black:  #090909;
-    --color-white: #ffffff;
-    --color-grey: #a0a0a0;
-    --color-light-grey: #f3f3f3;
-    --color-dark-grey: #353535;
-    --color-red: #54bbff8b;
-    --color-green: #08805b;
-    --color-blue: #00BCD4;
-}
-
 h1 {
     color: var(--color-dark-grey);
 }
@@ -99,7 +87,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --color-red: #54bbffa4;
     --color-green: #08805b;
   
-    --text-color: var(--color-black);
+    --text-color: var(--color-dark-grey);
     --valid-color: var(--color-green);
     --error-color: var(--color-red);
   
@@ -129,7 +117,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --section-title-margin: 0;
     --section-title-color: var(--color-dark-grey);
     --section-tagline-transform: uppercase;
-    --section-tagline-color: var(--color-primary);
+    --section-tagline-color: var(--color-dark-grey);
     --section-tagline-font-family: var(--font-family-headings);
     --section-tagline-font-weight: var(--font-weight-bold);
     --section-tagline-margin: 0;
@@ -265,6 +253,20 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   .emergency:hover {
     background-color: var(--button-hover-emergency);
     color: var(--color-white);
+  }
+
+
+  /* For about page */
+  .contact-us {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: var(--color-primary) 2px solid;
+    padding: 2rem 6rem;
+  }
+
+  .contact-us:hover {
+    background-color: var(--color-white);
+    color: var(--color-red);
   }
 
 
@@ -455,7 +457,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   .footer-copyright {
     margin: 0;
     font-size: var(--font-size-small);
-    color: var(--text-color);
+    color: var(--color-grey);
   }
   
   .footer ul {
@@ -463,7 +465,11 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   }
   
   .footer-address {
-    color: var(--text-color);
+    color: var(--color-grey)
+  }
+
+  .footer-nav-link {
+    color: var(--color-grey);
   }
   
   .social-link {
@@ -471,7 +477,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   }
   
   .social-link > svg {
-    fill: var(--text-color);
+    fill: var(--color-grey);
   }
   .class {
     justify-content: flex;
@@ -509,6 +515,13 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     line-height: var(--section-title-line-height);
     margin: var(--section-title-margin);
     color: var(--section-title-color);
+  }
+  .subsequent-section-title {
+    font-weight: var(--section-title-font-weight);
+    line-height: var(--section-title-line-height);
+    margin: var(--section-title-margin);
+    color: var(--color-primary);
+    margin-bottom: 12px;
   }
 
   @media screen and (max-width:767px) {
@@ -643,7 +656,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
       ============================= */
   
  .card-work{
-  background-color: white;
+  background-color: transparent;
   }
 
   .card-work .card-outer {
@@ -656,7 +669,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   }
   
   .card-work .card-image img {
-    height: 30rem;
+    height: 15rem;
     width: 100%;
     object-fit: cover;
     vertical-align: bottom;
@@ -692,7 +705,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   .card-work .card-title a {
     display: block;
     text-decoration: none;
-    padding-top: 45%;
+    padding-top: 20%;
   }
   
   .card-work .card-title a::after {
@@ -758,7 +771,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   .card-testimonial .card-quote cite {
     display: block;
     padding-top: 1rem;
-    color: var(--color-primary);
+    color: var(--color-dark-grey);
   }
   
   .card-testimonial .card-quote {
@@ -769,8 +782,8 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     content: '\201C';
     position: absolute;
     top: -4.5rem;
-    left: -2rem;
-    color: #454545;
+    left: -1rem;
+    color: #efeded;
     font-size: 10rem;
     z-index: -1;
   }

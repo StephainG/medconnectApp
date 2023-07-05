@@ -28,7 +28,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --color-blue: #54bbff2d;
     --color-green: #08805b;
   
-    --text-color: var(--color-black);
+    --text-color: var(--color-dark-grey);
     --valid-color: var(--color-green);
     --error-color: var(--color-red);
   

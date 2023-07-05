@@ -75,7 +75,7 @@
   </section>
 </section>
 
-<section class="section d-flex align-items-center justify-content-center section-about-us" style="background-color: white; height: 100vh;">
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="background-color: white; height: 80vh;">
   <div class="container">
       <div class="row">
         <div class="col-1-2">
@@ -83,7 +83,7 @@
         </div>
         <div class="col-1-2">
           <header class="section-header" style="text-align: left;">
-            <h1 class="section-title">Welcome to MedConnect</h1>
+            <h1 class="subsequent-section-title">Welcome to MedConnect</h1>
             <p class="section-tagline">Where personalized healthcare meets convenience</p>
           </header>
           <p style="line-height: 32px; margin-bottom: 32px;">At MedConnect, we prioritize your well-being by connecting you with a diverse 
@@ -105,10 +105,10 @@
   </div>
 </section>
 
-<section id="services" class="section section-works">
+<section id="services" class="section d-flex align-items-center justify-content-center section-works" style="height: 100vh;">
   <div class="container">
     <header class="section-header">
-      <h2 class="section-title">Our Services</h2>
+      <h1 class="subsequent-section-title">Our Services</h1>
       <p class="section-tagline">Let us be your healthcare partner.</p>
     </header>
     <div class="section-body">
@@ -120,12 +120,12 @@
                 <img src="{% static 'images/family-medicine.jpg' %}" class="card-img-top" alt="...">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="{% url 'familyMed' %}">Family Medicine</a></h3>
+                <h3 class="card-title"><a href="{% url 'familyMed' %}">Book Appointment</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
               <h2>Family Medicine</h2>
-              <div class="card-text text-black-50">Your personalized medical professionals.</div>
+              <div class="card-text text-black-50">Comprehensive Care for the Whole Family</div>
             </div>
           </article>
         </li>
@@ -136,12 +136,12 @@
                 <img src="{% static 'images/psychology.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="{% url 'psychiatry' %}">Psychiatry</a></h3>
+                <h3 class="card-title"><a href="{% url 'psychiatry' %}">Book Appointment</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
               <h2>Psychiatry</h2>
-              <div class="card-text text-black-50">Your personalized medical professionals.</div>
+              <div class="card-text text-black-50">Nurturing Mental Well-being, One Mind at a Time</div>
             </div>
           </article>
         </li>
@@ -152,12 +152,12 @@
                 <img src="{% static 'images/surgery.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="{% url 'surgery' %}">Surgery</a></h3>
+                <h3 class="card-title"><a href="{% url 'surgery' %}">Book Appointment</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
               <h2>Surgery</h2>
-              <div class="card-text text-black-50">Your personalized medical professionals.</div>
+              <div class="card-text text-black-50">Transforming Lives, One Incision at a Time</div>
             </div>
           </article>
         </li>
@@ -168,12 +168,12 @@
                 <img src="{% static 'images/dermatology.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="{% url 'dermatology' %}">Dermatology</a></h3>
+                <h3 class="card-title"><a href="{% url 'dermatology' %}">Book Appointment</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
               <h2>Dermatology</h2>
-              <div class="card-text text-black-50">Your personalized medical professionals.</div>
+              <div class="card-text text-black-50">Unveil Radiant Skin with Expert Dermatological Care</div>
             </div>
           </article>
         </li>
@@ -184,12 +184,12 @@
                 <img src="{% static 'images/neurology.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="{% url 'neurology' %}">Neurology</a></h3>
+                <h3 class="card-title"><a href="{% url 'neurology' %}">Book Appointment</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
               <h2>Neurology</h2>
-              <div class="card-text text-black-50">Your personalized medical professionals.</div>
+              <div class="card-text text-black-50">Unlocking the Mysteries of the Mind: Neurology at Its Finest</div>
             </div>
           </article>
         </li>
@@ -200,12 +200,12 @@
                 <img src="{% static 'images/dental.jpg' %}" alt="">
               </div>
               <div class="card-inner">
-                <h3 class="card-title"><a href="{% url 'dental' %}">Dental</a></h3>
+                <h3 class="card-title"><a href="{% url 'dental' %}">Book Appointment</a></h3>
               </div>
             </div>
             <div class="card-body text-center mt-4">
               <h2>Dental</h2>
-              <div class="card-text text-black-50">Your personalized medical professionals.</div>
+              <div class="card-text text-black-50">Smile Confidently with Exceptional Dental Care</div>
             </div>
           </article>
         </li>
@@ -214,14 +214,14 @@
   </div>
 </section>
 
-<section class="section d-flex align-items-center justify-content-center section-about-us" style="background-color: white; height: 100vh;">
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="background-color: white; height: 80vh;">
   <div class="container">
       <div class="row">
           <div class="col-1-2">
               <img src="{% static 'images/family-medicine.jpg' %}" alt="" width="100%">
           </div>
           <div class="col-1-2">
-              <h1>Key Features of the MedConnect Online Application</h1>
+              <h1 class="subsequent-section-title">Key Features of the MedConnect Online Application</h1>
               <ul class="image-list">
                   <li><p>Easy Appointment Scheduling</p></li>
                   <li><p>Secure Communication Channels</p></li>
@@ -234,14 +234,14 @@
   </div>
 </section>
 
-<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 100vh;">
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 80vh;">
   <div class="container">
       <div class="row">
           <div class="col-1-2">
-              <h1>Commitment to Excellence</h1>
-              <p>At MedConnect, we're dedicated to doing all possible to be the best. To improve the functionality, usability, and security of our web application, 
+              <h1 class="subsequent-section-title">Commitment to Excellence</h1>
+              <p style="line-height: 32px; margin-bottom: 32px;">At MedConnect, we're dedicated to doing all possible to be the best. To improve the functionality, usability, and security of our web application, 
                   we consistently make research and development investments. 
-                  We actively solicit customer input and take into account their recommendations to enhance the platform and make sure it meets their
+                  We actively solicit customer input and take into account their recommendations to enhance the platform and make sure it meets their satisfaction. <br><br>
                   We place a high priority on data privacy and abide by industry standards for the security of sensitive data. 
                   Our strong security procedures protect patient data while guaranteeing confidentiality and adhering to legal regulations.</p>
           </div>
@@ -252,10 +252,28 @@
   </div>
 </section>
 
-<section id="latest_news" class="section section-latest-news" style="height: 100vh; background-color: white;">
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="background-color: white; height: 80vh;">
+  <div class="container">
+      <div class="row">
+        <div class="col-1-2">
+          <img src="{% static 'images/secure.jpg' %}" alt="" width="100%">
+        </div>
+          <div class="col-1-2">
+              <h1 class="subsequent-section-title">Trust and security are fundamental pillars of our service</h1>
+              <p style="line-height: 32px; margin-bottom: 32px;">At MedConnect, we prioritize the privacy and protection of your sensitive
+                 information. To ensure your peace of mind, we have implemented industry-leading security
+                  measures, including robust data encryption and secure transmission protocols. 
+                  We are proud to be certified by trusted healthcare organizations and adhere 
+                  to stringent industry standards. </p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section id="latest_news" class="section d-flex align-items-center justify-content-center section-latest-news" style="height: 80vh;">
   <div class="container">
     <header class="section-header">
-      <h2 class="section-title">Latest News</h2>
+      <h1 class="subsequent-section-title">Latest News</h1>
     </header>
     <div class="section-body">
       <ul class="row">
@@ -293,10 +311,10 @@
 </section>
 
 
-<section id="testimonial" class="section section-testimonial">
+<section id="testimonial" class="section section-testimonial" style="background-color: white;">
   <div class="container">
     <header class="section-header">
-      <h2 class="section-title">Testimonials</h2>
+      <h1 class="subsequent-section-title">Testimonials</h1>
       <p class="section-tagline">We are more than a digital company</p>
     </header>
     <div class="section-body">
@@ -305,7 +323,7 @@
           <div class="carousel-item active">
               <article class="card-testimonial">
                 <img src="{% static 'images/person-01.jpg' %}" alt="Yuri Y. avatar" width="100" height="100" class="card-avatar">
-                <blockquote class="card-quote">
+                <blockquote class="card-quote text-center">
                   <p>I am completely blown away. Thanks to Techium, we’ve just launched our 5th website!
                     <cite>Yuri Y.</cite>
                   </p>
@@ -332,116 +350,43 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <!-- <ul class="row">
-        <li class="col-1-3">
-          <article class="card-testimonial">
-            <img src="{% static 'images/person-01.jpg' %}" alt="Yuri Y. avatar" width="100" height="100" class="card-avatar">
-            <blockquote class="card-quote">
-              <p>I am completely blown away. Thanks to Techium, we’ve just launched our 5th website!
-                <cite>Yuri Y.</cite>
-              </p>
-            </blockquote>
-          </article>
-        </li>
-        <li class="col-1-3">
-          <article class="card-testimonial">
-            <img src="{% static 'images/person-02.jpg' %}" alt="Dorrie S. avatar" width="100" height="100" class="card-avatar">
-            <blockquote class="card-quote">
-              <p>Thank you so much for your help. Techium company is awesome!
-                <cite>Dorrie S.</cite>
-              </p>
-            </blockquote>
-          </article>
-        </li>
-        <li class="col-1-3">
-          <article class="card-testimonial">
-            <img src="{% static 'images/person-03.jpg' %}" alt="Sven H. avatar" width="100" height="100" class="card-avatar">
-            <blockquote class="card-quote">
-              <p>I love your system. Definitely worth the investment. I’d be lost without Techium company.
-                <cite>Sven H.</cite>
-              </p>
-            </blockquote>
-          </article>
-        </li>
-      </ul> -->
     </div>
   </div>
 </section>
 
-<section id="contact" class="section section-contact" style="background-color: white;">
+{% if user.is_authenticated %}
+{% else %}
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 80vh;">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-tagline">We’d love to hear from you!</p>
-    </header>
-  </div>
-  <div class="container my-4">
-      <div class="row text-center"> 
-        <div class="col-sm">
-          <div class="contact-detail-box">
-            <i class="far fa-envelope fa-2x favicon-image"></i>
-            <h4>Get In Touch</h4>
-            <abbr title="Phone">P:</abbr>+234-810-958-1485<br>
-            E: <a href="onikunle03@gmail.com" class="text-muted">onikunle03@gmail.com</a>
-          </div>
-        </div>
-
-        <div class="col-sm">
-          <div class="contact-detail-box">
-            <i class="fa fa-map-marker fa-2x favicon-image"></i>
-            <h4>Our Location</h4>
-
-            <address>
-              No<sup>2</sup> Orogun street, Ibadan<br>
-              Ibadan, Oyo state.<br>
-            </address>
-          </div>
-        </div>
-      </div>
-      <!-- end row -->
-
-
       <div class="row">
-        <div class="col-sm">
-          <div class="contact-map">
-            <iframe src="https://www.google.com/maps/embed/v1/place?q=Orogun+Ibadan&amp;key=AIzaSyBSFRN6WWGYwmFi498qXXsD2UwkbmD74v4" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width: 100%; height: 360px;"></iframe>
+          <div class="col-1-2">
+              <h1 class="subsequent-section-title">Create An Account With Us To Get Started</h1>
+              <p style="line-height: 32px; margin-bottom: 32px;"> By registering with our platform, you unlock a world of convenience, accessibility, 
+                and exclusive benefits. Enjoy the ease of scheduling appointments, 
+                accessing your medical records, and staying up-to-date with the latest healthcare 
+                information at your fingertips. As a valued member, you'll receive tailored 
+                recommendations, personalized care plans, and timely reminders to ensure your health 
+                and well-being are always prioritized. 
+                Your health, your account, your convenience – all in one place. 
+              </p>
+              <div class="d-flex">
+                <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+              </div>
           </div>
-        </div>
-
-        <!-- Contact form -->
-        <div class="col-sm">
-          <form role="form" name="ajax-form" id="ajax-form" method="post" class="form-main" action="{% url 'home' %}">
-          {% csrf_token %}
-            <div class="form-group">
-              <label for="name2">Name</label>
-              <input class="form-control" id="name2" name="name" type="text" placeholder="name">
-              <div class="error" id="err-name" style="display: none;">Please enter name</div>
-            </div>
-            <div class="form-group">
-              <label for="email2">Email</label>
-              <input class="form-control" id="email2" name="email" type="text" placeholder="email">
-              <div class="error" id="err-emailvld" style="display: none;">E-mail is not a valid format</div>
-            </div>
-            <div class="form-group">
-              <label for="message2">Message</label>
-              <textarea class="form-control" id="message2" name="message" rows="5" placeholder="message">Message</textarea>
-              <div class="error" id="err-message" style="display: none;">Please enter message</div>
-            </div>
-            <div class="form-group">            
-                <button type="submit" class="btn btn-danger" id="send">Send</button>
-            </div>
-          </form>
+        <div class="col-1-2">
+          <img src="{% static 'images/secure.jpg' %}" alt="" width="100%">
         </div>
       </div>
   </div>
 </section>
+{% endif %}
 {% endblock %}
 
 {% block about %}
 {% endblock %}
 
-<footer class="footer" data-section-theme="dark" style="background-color: #54bbff4b;">
-  <div  class="container">
+<footer class="footer" data-section-theme="dark" style="background-color: #54bbff42;">
+  <div  class="container-fluid" style="margin-left: 64px; margin-right: 64px;">
     <div class="row">
       <div class="col-1-2">
         <img src="images/logo-white.png" alt="MedConnect" width="160" height="40">
