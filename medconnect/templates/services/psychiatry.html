@@ -15,24 +15,101 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 </head>
-<style>
-    .column {
-        height: 80vh;
-    }
-</style>
+
 {% include 'navbar.html' %}
-<section style="height: 80vh;">
+<section>
+    <div class="container text-center mt-4">
+        <h1 class="subsequent-section-title">Welcome to our Psychiatry Section!</h1>
+        <p style="line-height: 32px; margin-bottom: 16px;">At MedConnect, we understand the importance of mental health 
+            and well-being in achieving a balanced and fulfilling life. Our dedicated 
+            team of psychiatrists is committed to providing compassionate and 
+            comprehensive psychiatric care to patients of all ages.
+        </p>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
     <div class="container">
         <div class="row">
-            <div class="col column" style="margin: 64px 0;">
-                <h1>Psychiatry at MedConnect</h1>
-                <p style="line-height: 32px; margin-bottom: 32px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi sit, minus laudantium asperiores nam blanditiis ut ea laboriosam! Nobis magni amet dignissimos assumenda reiciendis eos est veritatis ab voluptatibus odit?</p>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">What is Psychiatry?</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Psychiatry is a medical specialty that focuses on the diagnosis, 
+                    treatment, and prevention of mental, emotional, and behavioral disorders. 
+                    Our psychiatrists are highly trained medical doctors who specialize in 
+                    understanding the complex interplay between biology, psychology, 
+                    and social factors that contribute to mental health conditions.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/psy.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/psy2.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Compassionate Care for Mental Health</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We believe that mental health
+                     is just as important as physical health, and we are here to support you 
+                     in every aspect of your emotional well-being. 
+                     Our team of psychiatrists offers a wide range of services, including 
+                     evaluations, diagnoses, and evidence-based treatments for various mental 
+                     health conditions.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Psychopharmacology and Medication Management</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">When appropriate, our psychiatrists 
+                    may recommend medication as part of your treatment plan. They have expertise 
+                    in psychopharmacology and will work closely with you to find the most suitable 
+                    medication, ensuring its effectiveness while minimizing any potential side 
+                    effects. Our team is dedicated to closely monitoring your progress and making 
+                    necessary adjustments to optimize your medication management.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/psy2.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/psy3.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Confidentiality and Respect</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Your privacy and confidentiality are 
+                    of utmost importance to us. We provide a safe and non-judgmental space for you 
+                    to express your concerns and seek the help you need. Our psychiatrists adhere 
+                    to strict ethical guidelines and professional standards to ensure that your 
+                    personal information remains confidential at all times.<br><br>
+                    Contact us today to schedule an appointment with one of our experienced psychiatrists. 
+                    We look forward to supporting you on your journey to mental well-being.
+                </p>
+                {% if user.is_authenticated %}
                 <div class="d-flex">
                     <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
                 </div>
-            </div>
-            <div class="col column">
-                <img src="{% static 'images/medc.jpg' %}" alt="" height="100%" width="100%">
+                {% else %}
+                <div class="d-flex">
+                    <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

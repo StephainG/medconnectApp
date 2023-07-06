@@ -15,24 +15,76 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 </head>
-<style>
-    .column {
-        height: 80vh;
-    }
-</style>
+
 {% include 'navbar.html' %}
-<section style="height: 80vh;">
+<section>
+    <div class="container text-center mt-4">
+        <h1 class="subsequent-section-title">Welcome to our Family Medicine Section</h1>
+        <p style="line-height: 32px; margin-bottom: 16px;">At MedConnect, we are proud to offer comprehensive 
+            family medicine services for patients of all ages. Our dedicated team of family physicians is committed to 
+            providing personalized and compassionate care to you and your loved ones.
+        </p>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 60vh;">
     <div class="container">
         <div class="row">
-            <div class="col column" style="margin: 64px 0;">
-                <h1>Family Medicine at MedConnect</h1>
-                <p style="line-height: 32px; margin-bottom: 32px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi sit, minus laudantium asperiores nam blanditiis ut ea laboriosam! Nobis magni amet dignissimos assumenda reiciendis eos est veritatis ab voluptatibus odit?</p>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">What is Family Medicine?</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Family medicine is a medical specialty that focuses on providing 
+                    primary healthcare to individuals and families throughout their lifespan. Our family physicians are trained to diagnose, 
+                    treat, and manage a wide range of acute and chronic medical conditions while emphasizing preventive care and 
+                    promoting overall well-being.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/family.jpeg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 60vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/family2.jpeg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Comprehensive Care for Every Family Member</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We understand that each family member has unique healthcare needs, 
+                    and that's why our family medicine practitioners are equipped to provide care to patients of all ages, 
+                    from newborns to seniors. Whether you require routine check-ups, vaccinations, preventive screenings, 
+                    or management of chronic conditions, our team is here to support you at every stage of life.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 60vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Convenience and Accessibility</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We understand that life can be busy, which is why we strive to make healthcare as convenient 
+                    and accessible as possible. With flexible appointment scheduling, same-day appointments for urgent matters, 
+                    and a range of in-house services, we aim to minimize the need for referrals and ensure that your healthcare 
+                    needs are met efficiently and effectively. <br><br>
+                    Contact us today to schedule an appointment with one of our experienced family physicians. 
+                    We look forward to serving you and your loved ones!
+                </p>
+                {% if user.is_authenticated %}
                 <div class="d-flex">
                     <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
                 </div>
+                {% else %}
+                <div class="d-flex">
+                    <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+                </div>
+                {% endif %}
             </div>
-            <div class="col column">
-                <img src="{% static 'images/medc.jpg' %}" alt="" height="100%" width="100%">
+            <div class="col-1-2">
+                <img src="{% static 'images/family3.jpeg' %}" alt="" height="100%" width="100%">
             </div>
         </div>
     </div>

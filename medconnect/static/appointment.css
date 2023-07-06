@@ -152,7 +152,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --button-hover-background: var(--color-light-grey);
     --button-radius: 8px;
 
-    --button-hover-emergency: rgba(255, 0, 0, 0.361);
+  
   
     /** MOTION **/
     --transition-duration: .3s;
@@ -244,15 +244,15 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   }
 
   .emergency {
-    background-color: rgba(255, 0, 0, 0.663);
-    color: var(--color-white);
-    border: 0;
+    background-color: transparent;
+    color: var(--color-dark-grey);
     padding: 2rem 6rem;
+    border: rgba(255, 0, 0, 0.663) 2px solid;
   }
 
   .emergency:hover {
-    background-color: var(--button-hover-emergency);
-    color: var(--color-white);
+    background-color: var(--color-light-grey);
+    color: var(--color-dark-grey);
   }
 
 

@@ -15,24 +15,100 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 </head>
-<style>
-    .column {
-        height: 80vh;
-    }
-</style>
+
 {% include 'navbar.html' %}
-<section style="height: 80vh;">
+<section>
+    <div class="container text-center mt-4">
+        <h1 class="subsequent-section-title">Welcome to our Surgery Section!</h1>
+        <p style="line-height: 32px; margin-bottom: 16px;">At MedConnect, we specialize in providing
+             exceptional surgical care to our patients. Our skilled team of surgeons is dedicated 
+             to delivering high-quality, personalized treatment using the latest surgical techniques 
+             and technologies. We strive to ensure that each patient receives the best possible 
+             care throughout their surgical journey.
+        </p>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
     <div class="container">
         <div class="row">
-            <div class="col column" style="margin: 64px 0;">
-                <h1>Surgery at MedConnect</h1>
-                <p style="line-height: 32px; margin-bottom: 32px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi sit, minus laudantium asperiores nam blanditiis ut ea laboriosam! Nobis magni amet dignissimos assumenda reiciendis eos est veritatis ab voluptatibus odit?</p>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Comprehensive Surgical Services</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We offer a wide range of surgical 
+                    services to address various medical conditions. Our surgeons are trained in multiple specialties, 
+                    including general surgery, orthopedic surgery, neurosurgery, cardiovascular surgery, and more. 
+                    Whether you require a minor procedure or a complex surgical intervention, our team is equipped 
+                    with the expertise and experience to provide exceptional care.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/surg1.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/surg3.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Individualized Treatment Plans</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We believe in a patient-centered approach to surgery. 
+                    Our surgeons take the time to thoroughly evaluate your condition, discuss your treatment options, 
+                    and develop a personalized surgical plan that aligns with your goals and preferences. 
+                    We understand that each patient is unique, and we strive to provide tailored care to 
+                    optimize your surgical outcome and overall well-being.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Postoperative Care and Follow-up</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Our commitment to your well-being extends 
+                    beyond the operating room. After your surgery, our team will closely monitor your recovery 
+                    and provide comprehensive postoperative care. We will guide you through the healing process, 
+                    manage pain, and ensure that you have all the necessary resources and information for a smooth recovery. 
+                    We also schedule regular follow-up appointments to monitor your progress and address any further medical needs.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/surg2.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/surg4.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Patient Education and Empowerment</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We believe in empowering our patients with knowledge and 
+                    information about their surgical procedures. Our surgeons will thoroughly explain the surgical process, 
+                    potential risks and benefits, and answer any questions you may have. We believe that an informed patient 
+                    is better prepared for their surgery and plays an active role in their own care.<br><br>
+                    Your health and well-being are our top priorities, and we are honored to be a part of your surgical journey. 
+                    Contact us today to schedule a consultation with one of our skilled surgeons. 
+                    We look forward to providing you with the highest standard of surgical care.
+                </p>
+                {% if user.is_authenticated %}
                 <div class="d-flex">
                     <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
                 </div>
-            </div>
-            <div class="col column">
-                <img src="{% static 'images/medc.jpg' %}" alt="" height="100%" width="100%">
+                {% else %}
+                <div class="d-flex">
+                    <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

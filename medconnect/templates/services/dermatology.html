@@ -15,24 +15,133 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 </head>
-<style>
-    .column {
-        height: 80vh;
-    }
-</style>
+
 {% include 'navbar.html' %}
-<section style="height: 80vh;">
+<section>
+    <div class="container text-center mt-4">
+        <h1 class="subsequent-section-title">Welcome to our Dermatology Section!</h1>
+        <p style="line-height: 32px; margin-bottom: 16px;">At MedConnect, we are dedicated to providing 
+            exceptional dermatological care to help you achieve and maintain healthy skin. Our team of board-certified 
+            dermatologists is highly skilled in diagnosing and treating a wide range of skin conditions, 
+            ensuring that you receive personalized and effective treatment for your unique needs. 
+        </p>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
     <div class="container">
         <div class="row">
-            <div class="col column" style="margin: 64px 0;">
-                <h1>Dermatology at MedConnect</h1>
-                <p style="line-height: 32px; margin-bottom: 32px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi sit, minus laudantium asperiores nam blanditiis ut ea laboriosam! Nobis magni amet dignissimos assumenda reiciendis eos est veritatis ab voluptatibus odit?</p>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Comprehensive Skin Care Services</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We offer a comprehensive range of dermatological 
+                    services to address various skin conditions, ranging from common skin conditions to more complex 
+                    dermatological disorders. Whether you are seeking treatment for acne, eczema, psoriasis, skin cancer, 
+                    or any other skin concern, our dermatologists have the expertise and experience to provide the highest quality of care.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/derm1.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/derm2.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Acne Treatment and Management</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Acne is a common skin condition that can affect individuals of all ages. 
+                    Our dermatologists understand the physical and emotional impact that acne can have, and we offer a range of treatment 
+                    options to address both active acne and acne scarring. We provide personalized treatment plans, 
+                    including topical medications, oral medications, chemical peels, and laser therapies, to help you achieve clearer and healthier skin.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Skin Cancer Detection and Treatment</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Skin cancer is a prevalent condition that requires 
+                    early detection and treatment for optimal outcomes. Our dermatologists are trained in the early 
+                    detection of skin cancer through thorough skin examinations and biopsies when necessary. 
+                    We offer various treatment options, including surgical excision, Mohs micrographic surgery, 
+                    cryotherapy, and topical therapies, tailored to your specific condition and needs.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/surg2.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/surg3.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Eczema, Psoriasis, and Dermatitis Care</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Chronic skin conditions such as eczema, psoriasis, 
+                    and dermatitis can significantly impact your quality of life. Our dermatologists are experienced in 
+                    diagnosing and managing these conditions, providing tailored treatment plans that may include topical medications, 
+                    phototherapy, systemic medications, and lifestyle recommendations. We are committed to helping you 
+                    manage the symptoms and achieve long-term relief.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Skin Care Education and Prevention</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Prevention and education are essential elements of maintaining healthy skin. 
+                    Our dermatologists are passionate about providing you with the knowledge and tools to protect and care for your skin. 
+                    We offer guidance on sun protection, proper skincare routines, and lifestyle modifications to minimize the 
+                    risk of skin conditions and promote overall skin health.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/surg2.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/surg4.jpg' %}" alt="" height="100%" width="100%" style="height: 60vh;">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Collaborative Care and Referrals</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Our dermatologists work collaboratively with other healthcare 
+                    providers to ensure comprehensive care. If your skin condition requires multidisciplinary management, 
+                    we will coordinate with specialists in related fields to provide you with a comprehensive treatment plan. 
+                    We believe in a team approach to healthcare, placing your well-being at the forefront.<br><br>
+                    Your skin health is our priority, and we are committed to helping you achieve and maintain healthy, radiant skin. 
+                    Contact us today to schedule an appointment with one of our experienced dermatologists. 
+                    We look forward to providing you with the highest standard of dermatological care.
+                </p>
+                {% if user.is_authenticated %}
                 <div class="d-flex">
                     <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
                 </div>
-            </div>
-            <div class="col column">
-                <img src="{% static 'images/medc.jpg' %}" alt="" height="100%" width="100%">
+                {% else %}
+                <div class="d-flex">
+                    <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
