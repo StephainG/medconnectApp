@@ -15,24 +15,99 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 </head>
-<style>
-    .column {
-        height: 80vh;
-    }
-</style>
+
 {% include 'navbar.html' %}
-<section style="height: 80vh;">
+<section>
+    <div class="container text-center mt-4">
+        <h1 class="subsequent-section-title">Welcome to our Neurology Section!</h1>
+        <p style="line-height: 32px; margin-bottom: 16px;">our team of dedicated neurologists specializes in 
+            diagnosing and treating disorders of the nervous system. We are committed to providing comprehensive 
+            and compassionate care to our patients, focusing on improving neurological health and enhancing quality of life. 
+        </p>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
     <div class="container">
         <div class="row">
-            <div class="col column" style="margin: 64px 0;">
-                <h1>Neurology at MedConnect</h1>
-                <p style="line-height: 32px; margin-bottom: 32px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi sit, minus laudantium asperiores nam blanditiis ut ea laboriosam! Nobis magni amet dignissimos assumenda reiciendis eos est veritatis ab voluptatibus odit?</p>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Comprehensive Neurological Evaluations</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We believe in a patient-centered approach to neurology, 
+                    where we take the time to thoroughly evaluate your medical history, perform a comprehensive neurological 
+                    examination, and order any necessary diagnostic tests. These may include imaging studies, such as MRI or CT scans, 
+                    electroencephalograms (EEGs), nerve conduction studies, or lumbar punctures. Our goal is to obtain an accurate 
+                    diagnosis, allowing us to develop an individualized treatment plan that addresses your specific needs.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/neu1.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/neu2.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Support and Education</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We understand that living with a neurological condition can be 
+                    challenging, both for patients and their families. Our neurologists are here to provide ongoing support and 
+                    education throughout your treatment journey. We believe in fostering open communication and encourage you to 
+                    ask questions, voice concerns, and actively participate in your care. We are committed to empowering you with 
+                    knowledge and resources to help you manage your condition and make informed decisions about your health.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Personalized Treatment Plans</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Once a diagnosis is established, our neurologists will work closely with you to develop a 
+                    personalized treatment plan. This may involve a combination of medication management, lifestyle modifications, 
+                    physical therapy, occupational therapy, speech therapy, or referral to other specialists when necessary. 
+                    We aim to provide you with the most effective treatment options to manage your condition, alleviate symptoms, 
+                    and improve your quality of life.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/neu3.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/neu4.jpg' %}" alt="" height="100%" width="100%" style="height: 60vh;">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Collaborative Care</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">Neurological conditions often require a multidisciplinary approach to care. 
+                    Our neurologists work closely with other healthcare professionals, such as neurosurgeons, physical therapists, 
+                    psychiatrists, and primary care physicians, to ensure comprehensive and coordinated care. 
+                    We believe in fostering a collaborative environment where your overall well-being is prioritized.<br><br>
+                    Your neurological health is our priority, and we are here to guide you through your treatment journey. 
+                    Contact us today to schedule an appointment with one of our experienced neurologists. 
+                    We look forward to providing you with the highest standard of neurological care.
+                </p>
+                {% if user.is_authenticated %}
                 <div class="d-flex">
                     <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
                 </div>
-            </div>
-            <div class="col column">
-                <img src="{% static 'images/medc.jpg' %}" alt="" height="100%" width="100%">
+                {% else %}
+                <div class="d-flex">
+                    <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
