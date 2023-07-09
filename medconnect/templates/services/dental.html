@@ -15,24 +15,83 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 </head>
-<style>
-    .column {
-        height: 80vh;
-    }
-</style>
+
 {% include 'navbar.html' %}
-<section style="height: 80vh;">
+<section>
+    <div class="container text-center mt-4">
+        <h1 class="subsequent-section-title">Welcome to our Dental Department</h1>
+        <p style="line-height: 32px; margin-bottom: 16px;">
+            At MedConnect, we are committed to providing exceptional dental care to help you achieve and 
+            maintain a healthy and beautiful smile. Our team of skilled and caring dental professionals is 
+            dedicated to delivering personalized treatment in a comfortable and welcoming environment.
+        </p>
+    </div>
+</section>
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
     <div class="container">
         <div class="row">
-            <div class="col column" style="margin: 64px 0;">
-                <h1>Dental at MedConnect</h1>
-                <p style="line-height: 32px; margin-bottom: 32px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi sit, minus laudantium asperiores nam blanditiis ut ea laboriosam! Nobis magni amet dignissimos assumenda reiciendis eos est veritatis ab voluptatibus odit?</p>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Comprehensive Dental Services</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We offer a comprehensive range of dental services for 
+                    patients of all ages, ensuring that your dental needs are met under one roof. Whether you require 
+                    preventive care, restorative treatments, cosmetic dentistry, or specialized dental procedures, 
+                    our experienced dentists are equipped with the knowledge and skills to provide exceptional care.
+                </p> 
+            </div>
+            <div class="col-1-2">
+                <img src="{% static 'images/dent1.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/dent2.jpg' %}" alt="" height="100%" width="100%">
+            </div>
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Specialized Dental Procedures</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">In addition to general dental services, 
+                    our practice offers specialized treatments to address specific dental concerns. 
+                    These may include endodontic treatments (root canal therapy), periodontal therapy (gum disease treatment), 
+                    oral surgery (extractions and dental implant placement), and TMJ/TMD (jaw joint) disorders. 
+                    Our dentists have the expertise to perform these procedures with precision and care, 
+                    ensuring your comfort and optimal outcomes.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section d-flex align-items-center justify-content-center section-about-us" style="height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-1-2">
+                <h1 class="subsequent-section-title">Patient Education and Comfort</h1>
+                <p style="line-height: 32px; margin-bottom: 32px;">We value patient education and will take the time to explain your dental conditions, 
+                    treatment options, and any necessary procedures. Our goal is to empower you to make informed decisions about 
+                    your oral health. We also prioritize your comfort during your visit, offering amenities to create a relaxed 
+                    and pleasant dental experience.<br><br>
+                    Your oral health is our priority, and we are dedicated to helping you achieve a healthy and beautiful smile. 
+                    Contact us today to schedule an appointment with one of our experienced dentists. 
+                    We look forward to providing you with the highest standard of dental care.
+                </p>
+                {% if user.is_authenticated %}
                 <div class="d-flex">
                     <a href="{% url 'appointment' %}" class="button book-appointment">Book Appointment</a>
                 </div>
+                {% else %}
+                <div class="d-flex">
+                    <a href="{% url 'register' %}" class="button book-appointment">Sign up to get started</a>
+                </div>
+                {% endif %}
             </div>
-            <div class="col column">
-                <img src="{% static 'images/medc.jpg' %}" alt="" height="100%" width="100%">
+            <div class="col-1-2">
+                <img src="{% static 'images/dent3.jpg' %}" alt="" height="100%" width="100%" style="height: 60vh;">
             </div>
         </div>
     </div>

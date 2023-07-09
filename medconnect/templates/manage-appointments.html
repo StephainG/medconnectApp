@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'appointment.css' %}" type="text/css" />
 </head>
-
 <style>
   .card-margin {
       margin-bottom: 1.875rem;
@@ -361,8 +360,10 @@
     color: var(--color-white);
     background-color: var(--color-red);
   }
+
 </style>
 {% include 'navbar.html' %}
+<body>
 {% if messages %}
     <div class="card notification-card notification-invitation text-center">
         <div class="card-body">
@@ -373,55 +374,55 @@
       </div>
 {% endif %}
 
-    <div class="container mt-5" style="padding-left: 0; padding-right: 0;">
-        <div class="col text-center">
-            <h1>
-                Manage appointments
-            </h1>
+<div class="container mt-5">
+  <div class="text-center">
+      <h1 class="header-appointment">
+          Manage appointments
+      </h1>
+  </div>
+  <div class="row">
+  {% for app in appointments %}
+    <div class="col">
+        <div class="card card-margin">
+            <div class="card-header no-border">
+                <h5 class="card-title">{{app.first_name}} {{app.last_name}}</h5>
+            </div>
+            <div class="card-body pt-0">
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-primary">
+                            <span class="widget-49-date-day">{{app.sent_date|date:"d"}}</span>
+                            <span class="widget-49-date-month">{{app.sent_date|date:"M"}}</span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">{{app.email}}</span>
+                            <span class="widget-49-meeting-time">{{app.phone}}</span>
+                        </div>
+                    </div>
+                    <div class="widget-49-meeting-points">
+                        <span>{{app.request}}</span>
+                    </div>
+                    <hr class="w-100">
+                    {% if app.accepted == False %}
+                    <form method="POST" action="{% url 'manage' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="date" name="date" class="form-control mb-2" 
+                            placeholder="dd-mm-yyyy" value=""
+                            min="1997-01-01" max="2030-12-31">
+                        <input hidden="true" name="appointment-id" value="{{app.id}}">
+                        <input class="btn-block btn-primary form-control" type="submit" value="Accept">
+                    </div>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-        <div class="row">
-        {% for app in appointments %}
-          <div class="col-lg-4">
-              <div class="card card-margin">
-                  <div class="card-header no-border">
-                      <h5 class="card-title">{{app.first_name}} {{app.last_name}}</h5>
-                  </div>
-                  <div class="card-body pt-0">
-                      <div class="widget-49">
-                          <div class="widget-49-title-wrapper">
-                              <div class="widget-49-date-primary">
-                                  <span class="widget-49-date-day">{{app.sent_date|date:"d"}}</span>
-                                  <span class="widget-49-date-month">{{app.sent_date|date:"M"}}</span>
-                              </div>
-                              <div class="widget-49-meeting-info">
-                                  <span class="widget-49-pro-title">{{app.email}}</span>
-                                  <span class="widget-49-meeting-time">{{app.phone}}</span>
-                              </div>
-                          </div>
-                          <div class="widget-49-meeting-points">
-                              <span>{{app.request}}</span>
-                          </div>
-                          <hr class="w-100">
-                          {% if app.accepted == False %}
-                          <form method="POST" action="{% url 'manage' %}">
-                          {% csrf_token %}
-                          <div class="form-group">
-                              <input type="date" name="date" class="form-control mb-2" 
-                                  placeholder="dd-mm-yyyy" value=""
-                                  min="1997-01-01" max="2030-12-31">
-                              <input hidden="true" name="appointment-id" value="{{app.id}}">
-                              <input class="btn-block btn-primary form-control" type="submit" value="Accept">
-                          </div>
-                          </form>
-                          {% endif %}
-                      </div>
-                  </div>
-              </div>
-          </div>
-        {% endfor %}
     </div>
-
-    {% if is_paginated %}
+  {% endfor %}
+  </div>
+</div>
+{% if is_paginated %}
     <div class="wrapper">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -437,5 +438,7 @@
             </ul>
         </nav>
     </div>
-    {% endif %}
+{% endif %}
+</body>
+
 {% endblock %}

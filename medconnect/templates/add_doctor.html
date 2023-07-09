@@ -18,8 +18,12 @@
 </head>
 {% include 'navbar.html' %}
 <body>
-    <div class="container">
-        <h2 class="text-center">Add Doctor</h2>
+    <div class="container mt-5" style="padding-left: 0; padding-right: 0;">
+        <div class="col text-center">
+            <h1>
+                Add Doctor
+            </h1>
+        </div>
         <form method="POST">
             {% csrf_token %}
             <div class="mb-3">
@@ -39,8 +43,9 @@
                 <label class="form-label">Speciality</label>
                 <input type="text" class="form-control" name="special">
             </div>
-            
-            <input type="submit" class="form-control btn btn-info" value="Submit">
+            <div class="text-center mt-3">
+                <button class="btn" style="width: 100%; height: 64px; background-color: #54BBFF; color: white;" type="submit">Submit</button>
+            </div>
         </form>
     </div>
 </body>
