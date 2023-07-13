@@ -22,10 +22,13 @@
     h3, p {
         opacity: 0.6;
     }
+    .about-name {
+        color: #385399;
+    }
     .container-about {
         position: relative;
         height: 50vh;
-        background-image: url('static/images/about-background.jpg');
+        background-image: url('static/images/about.jpeg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -39,7 +42,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        backdrop-filter: blur(8px);
+        /* backdrop-filter: blur(8px); */
         pointer-events: none;
     }
 
@@ -85,8 +88,8 @@
     <div class="container-fluid container-about">
         <div class="row container-about-sub">
             <div class="col">
-                <h1 class="text-center" style="letter-spacing: 12px;">About MedConnect</h1>
-                <h4 class="text-center" style="font-size: 24px;"> Revolutionizing Healthcare Communication</h4><br>
+                <h1 class="text-center" style="letter-spacing: 12px;">ABOUT MEDCONNECT</h1> <br>
+                <h4 class="text-center" style="font-size: 24px;"> Revolutionizing Healthcare Communication</h4>
             </div>
         </div>
     </div>
@@ -95,7 +98,7 @@
     <div class="container">
         <div class="row">
             <div class="col-1-2 my-auto">
-                <h1>Our Mission Statement</h1>
+                <h1 class="header-about">Our Mission Statement</h1>
             </div>
             <div class="col-1-2 my-auto">
                 <p>Through its user-friendly online application, MedConnect is a cutting-edge technology firm committed to transforming healthcare communication. 
@@ -122,15 +125,15 @@
 <section class="second-section-about">
     <div class="container">
         <div class="row">
+            <div class="col-1-2">
+                <img src="{% static 'images/about-background.jpg' %}" alt="" width="100%">
+            </div>
             <div class="col-1-2 my-auto">
-                <h1>Our Vision</h1>
+                <h1 class="header-about">Our Vision</h1>
                     <h3>Transforming Healthcare Access and Delivery</h3>
                     <p>At MedConnect, we see a time when everyone can readily access healthcare services, regardless of location or physical capabilities. 
                         Our objective is to provide patients with the instruments and materials they require to easily manage their healthcare demands. 
                         By utilizing technology, we hope to improve the healthcare process and make it more patient-centric, practical, and effective.</p>
-            </div>
-            <div class="col-1-2">
-                <img src="{% static 'images/about.png' %}" alt="">
             </div>
         </div>
     </div>
@@ -139,24 +142,24 @@
 <hr width="50%" style="margin: auto;">
 <section class="second-section-about">
     <div class="container">
-        <h1 class="text-center">Our Team</h1> <br><br>
+        <h1 class="text-center header-about">Our Team</h1> <br><br>
         <div class="row">
             <div class="col text-center">
                 <img src="{% static 'images/commitment.jpg' %}" alt="" width="64px" height="64px" style="border-radius: 50%;"><br><br>
-                <h2>Oni Kunle</h2>
-                <h3 style="color: #54BBFF;">Software Engineer and CEO</h3>
+                <h2 class="about-name">Oni Kunle</h2>
+                <small style="color: #ed1b24;">Software Engineer and CEO</small>
                 <p>A skilled programmer and the CEO of MedConect. He steers the company with the knowledge and a clear vision while being driven by his passion for technology and success.</p>
             </div>
             <div class="col text-center">
                 <img src="{% static 'images/commitment.jpg' %}" alt="" width="64px" height="64px" style="border-radius: 50%;"><br><br>
-                <h2>Adeseye Sylvester</h2>
-                <h3 style="color: #54BBFF;">Chief Medical Director</h3>
+                <h2 class="about-name">Adeseye Sylvester</h2>
+                <small style="color: #ed1b24;">Chief Medical Director</small>
                 <p>A medical professional at our hospital with exceptional training and compassion. Dr. Adeseye is vital to offering top-notch healthcare services because of his commitment to patient care and depth of medical knowledge.</p>
             </div>
             <div class="col text-center">
                 <img src="{% static 'images/commitment.jpg' %}" alt="" width="64px" height="64px" style="border-radius: 50%;"><br><br>
-                <h2>Asamu Folasade</h2>
-                <h3 style="color: #54BBFF;">Data Analyst</h3>
+                <h2 class="about-name">Asamu Folasade</h2>
+                <small style="color: #ed1b24;">Data Analyst</small>
                 <p>A knowledgeable and perceptive data analyst in our hospital. She is dedicated to using data to support informed decision-making and is a key player in the transformation of healthcare.</p>
             </div>
         </div>
@@ -167,7 +170,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h1>MedConnect</h1>
+                <h1 class="header-about">MedConnect</h1>
                 <h3>Together, We're Transforming Healthcare — Join Us!</h3>
                 <p>MedConnect cordially invites patients, doctors, and other healthcare professionals to join us in our effort to revolutionize healthcare communication. 
                     Together, we can create a future in which working with healthcare providers and obtaining healthcare services is simple, practical, and patient-focused.</p>

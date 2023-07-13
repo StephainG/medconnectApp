@@ -12,6 +12,9 @@ from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.core.mail import EmailMessage, message
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
 from django.conf import settings
 
 
@@ -40,12 +43,16 @@ class AppointmentTemplateView(TemplateView):
         return HttpResponseRedirect(request.path)
     
 
-class ManageAppointmentTemplateView(ListView):
+class ManageAppointmentTemplateView(PermissionRequiredMixin, ListView):
     template_name = "manage-appointments.html"
     model = Appointment
     context_object_name = "appointments"
     login_required = True
     paginate_by = 3
+    permission_required = 'superuser'
+
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
 
 
     def post(self, request):
@@ -86,24 +93,29 @@ class ManageAppointmentTemplateView(ListView):
         })
         return context
     
-def Add_doctor(request):
-    error = ""
-    # if not request.user.is_staff:
-    #     return redirect('login')
-    
-    if request.method == "POST":
-        i = request.POST.get('image')
-        n = request.POST.get('name')
-        m = request.POST.get('mobile')
-        sp = request.POST.get('special')
 
-        try:
-            Doctor.objects.create(image = i, name = n, mobile = m, special = sp)
-            error = "no"
-        except:
-            error = "yes"
-    d = {'error':error}
-    return render(request, 'add_doctor.html', d)
+@login_required
+def Add_doctor(request):
+    if not request.user.is_superuser:
+        return render(request, 'index.html')
+    else:
+        error = ""
+        # if not request.user.is_staff:
+        #     return redirect('login')
+        
+        if request.method == "POST":
+            i = request.POST.get('image')
+            n = request.POST.get('name')
+            m = request.POST.get('mobile')
+            sp = request.POST.get('special')
+
+            try:
+                Doctor.objects.create(image = i, name = n, mobile = m, special = sp)
+                error = "no"
+            except:
+                error = "yes"
+        d = {'error':error}
+        return render(request, 'add_doctor.html', d)
 
 def emergency(request):
     # if not request.user.is_staff:
@@ -137,3 +149,9 @@ def psychiatry(request):
 
 # def emergency(request):
 #     return render(request, 'emergency.html')
+
+def security(request):
+    return render(request, 'security.html')
+
+def billing(request):
+    return render(request, 'billing.html')

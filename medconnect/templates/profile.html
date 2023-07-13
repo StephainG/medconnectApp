@@ -1,55 +1,144 @@
 {% extends "index.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
+
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'profile.css' %}" type="text/css" />
+
+
+    <script src="https://kit.fontawesome.com/c3124c61aa.js" crossorigin="anonymous"></script>
+</head>
+{% include 'navbar.html' %}
 <div class="container">
-    <div class="content-section col-lg-12 col-md-12 col-sm-12 tutorial-style" style="min-height:65vh;">
-        <legend class="border-bottom mb-4 fs-1 fw-bolder">PROFILE INFORMATION</legend>
+    <div class="content-section col-lg-12 col-md-12 col-sm-12 tutorial-style">
         <form method="POST" enctype="multipart/form-data">
+            <!-- Account page navigation-->
+            <nav class="nav nav-borders">
+                <a class="btn btn-nav" href="https://www.bootdey.com/snippets/view/bs5-edit-profile-account-details" target="__blank">Profile</a>
+                <a class="btn btn-nav" href="{% url 'security' %}" target="__self">Security</a>
+                <a class="btn btn-nav" href="{% url 'billing' %}" target="__self">Billing</a>
+            </nav>
             {% csrf_token %}
             <div class="media">
-                <img class="rounded-circle account-img profile-image", src="{{ form.instance.image.url }}">
-                <div class="media-body">
-                    <br>
-                    <h2 class="account-heading">{{ form.instance.username }}
-                        <small class="text-muted">({{ form.instance.status }})</small>
-                    </h2>
-                    <p class="text-secondary"><span class="fw-bolder">Name:</span> {{ form.instance.first_name }} {{ form.instance.last_name }}</p>
-                    <p class="text-secondary"><span class="fw-bolder">Email Address:</span> {{ form.instance.email }}</p>
-                    <p class="text-secondary"><span class="fw-bolder">Telephone number:</span> {{ form.instance.phone_number }}</p>
-                    <p class="text-secondary"><span class="fw-bolder">Address:</span> {{ form.instance.address }}</p>
-                    <p class="text-secondary"><span class="fw-bolder">Subscription Type:</span> {{ form.instance.status }}</p>
+                <div class="row">
+                    <div class="col">
+                        <!-- Profile picture card-->
+                        <div class="card mb-4 mb-xl-0 p-0">
+                            <div class="card-header">Profile Picture</div>
+                            <div class="card-body text-center">
+                                <!-- Profile picture image-->
+                                <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                <!-- Profile picture help block-->
+                                <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                                <!-- Profile picture upload button-->
+                                <button class="btn btn-nav" type="button">Upload new image</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 m-0">
+                        <div class="col">
+                            <!-- Account details card-->
+                            <div class="card mb-4 p-0">
+                                <div class="card-header">Account Details</div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between p-4" style="padding-left: 24px; padding-right: 64px;">
+                                        <div class="mb-4">
+                                            <p class="text-secondary"><span class="fw-bolder"><i class="fa-solid fa-user fa-lg"></i> &nbsp;Name:</span> {{ form.instance.first_name }} {{ form.instance.last_name }}</p>
+                                            <p class="text-secondary"><span class="fw-bolder"><i class="fa-sharp fa-solid fa-envelope fa-lg"></i> &nbsp;Email Address:</span> {{ form.instance.email }}</p>
+                                        </div>
+                                        <div class="mb-4">
+                                            <p class="text-secondary"><span class="fw-bolder"><i class="fa-solid fa-phone fa-lg"></i> &nbsp;Telephone number:</span> {{ form.instance.phone_number }}</p>
+                                            <p class="text-secondary"><span class="fw-bolder"><i class="fa-solid fa-address-book fa-lg"></i> &nbsp;Address:</span> {{ form.instance.address }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card mb-4 p-0">
+                                <div class="card-header">Subsrciption Type</div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between" style="padding-left: 24px; padding-right: 64px;">
+                                        <div>
+                                            <p class="text-secondary">{{ form.instance.status }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-    
-            {% if user.username == form.instance.username %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Edit Profile Information</legend>
-                    <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.first_name|as_crispy_field }}
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col m-0">
+                        <!-- Account details card-->
+                        <div class="card mb-4 p-0">
+                            <div class="card-header">Update Details</div>
+                            <div class="card-body">
+                                {% if user.username == form.instance.username %}
+                                
+                                    <!-- Form Group (username)-->
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col">
+                                            {{ form.first_name|as_crispy_field }}
+                                        </div>
+                                        <!-- Form Group (last name)-->
+                                        <div class="col">
+                                            {{ form.last_name|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                    <!-- Form Row        -->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col">
+                                            {{ form.phone_number|as_crispy_field }}
+                                        </div>
+                                        <!-- Form Group (location)-->
+                                        <div class="col">
+                                            {{ form.address|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                    <!-- Form Group (email address)-->
+                                    <div class="row gx-3 mb-3">
+                                        <div class="col">
+                                            {{ form.email|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                    <div class="row gx-3 mb-3">
+                                        <div class="col">
+                                            {{ form.status|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Save changes button-->
+                                    <button class="btn btn-nav" type="submit">Save changes</button>
+
+                                {% endif %}
+                            </div>
                         </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.last_name|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.phone_number|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.address|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.status|as_crispy_field }}
-                        </div>
-                    </div> 
-                    {{ form.email|as_crispy_field }}
-    
-                    <a href="/">Change password?</a>
-                </fieldset>
-                <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Update</button>
+                    </div>
                 </div>
-            {% endif %}
+            </div>
+            
         </form>
     </div>
 </div>
-{% endblock content %}
+
+
+
+{% endblock %}

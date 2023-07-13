@@ -161,10 +161,11 @@ def profile(request, username):
     return redirect("/")
 
 
-class HomeTemplateView(TemplateView):
-    template_name = "index.html"
-    
-    def post(self, request):
+def about(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    if request.method == "POST":
         name = request.POST.get("name")
         email = request.POST.get("email")
         message = request.POST.get("message")
@@ -178,9 +179,5 @@ class HomeTemplateView(TemplateView):
         )
         email.send()
         return HttpResponse("Email sent successfully!")
-    
-def about(request):
-    return render(request, 'about.html')
-
-def contact(request):
-    return render(request, 'contact.html')
+    else:
+        return render(request, 'contact.html')
