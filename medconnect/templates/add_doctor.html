@@ -24,7 +24,7 @@
                 Add Doctor
             </h1>
         </div>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="mb-3">
                 <label class="form-label">Doctor picture</label>

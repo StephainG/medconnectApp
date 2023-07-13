@@ -17,4 +17,5 @@ urlpatterns = [
     path('billing', views.billing, name='billing'),
 
     path('add_doctor', Add_doctor, name='add_doctor'),
+    path('whatsapp/<int:pk>', views.whatsapp_redirect, name='whatsapp_redirect'),
 ]

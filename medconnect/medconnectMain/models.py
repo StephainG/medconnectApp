@@ -1,4 +1,5 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 
@@ -20,10 +21,16 @@ class Appointment(models.Model):
 
 
 class Doctor(models.Model):
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to="images/")
     name = models.CharField(max_length=60)
-    mobile = models.IntegerField()
+    mobile = PhoneNumberField(
+            max_length=20,
+            blank=True,
+            null=True,
+            help_text="Enter a valid WhatsApp phone number in the format +1234567890123"
+        )
     special = models.CharField(max_length=50)
+    
 
     def __str__(self):
         return self.name

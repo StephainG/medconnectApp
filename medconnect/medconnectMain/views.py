@@ -104,7 +104,7 @@ def Add_doctor(request):
         #     return redirect('login')
         
         if request.method == "POST":
-            i = request.POST.get('image')
+            i = request.FILES['image']
             n = request.POST.get('name')
             m = request.POST.get('mobile')
             sp = request.POST.get('special')
@@ -116,6 +116,12 @@ def Add_doctor(request):
                 error = "yes"
         d = {'error':error}
         return render(request, 'add_doctor.html', d)
+    
+
+def whatsapp_redirect(request, pk):
+    doctor = Doctor.objects.get(pk=pk)
+    whatsapp_url = f'https://wa.me/{doctor.mobile}'
+    return redirect(whatsapp_url)
 
 def emergency(request):
     # if not request.user.is_staff:

@@ -19,28 +19,43 @@
 </head>
 <style>
     .call {
-        background-color: red;
+        background-color: #ed1b24;
         color: white;
-        border: 0;
+        border: 2px solid #ed1b24;
         padding: 1.5rem 4rem;
         margin-right: 1.8rem;
     }
 
+    .video-button {
+        padding: 2.2rem 4rem;
+        margin-right: 1.8rem;
+        border: 2px solid #23408e;
+        border-radius: 4px;
+    }
+
+    .video-button:hover {
+        background-color: #23408e;
+        color: white;
+    }
+
   .call:hover {
-    background-color: rgba(255, 0, 0, 0.646);
-    color: white;
+    background-color: transparent;
+    border: 2px solid #ed1b24;
+    color: #23408e;
+    text-decoration: none;
   }
 
   .message {
     background-color: transparent;
-    color: rgb(45, 45, 45);
+    color: #23408e;
     padding: 1.5rem 4rem;
-    border: #54bbff 2px solid;
+    border: #23408e 2px solid;
   }
 
   .message:hover {
-    border: #54bbff 2px solid;
-    color: rgba(45, 45, 45, 0.531);
+    background-color: #23408e;
+    color: white;
+    text-decoration: none;
   }
   .second-section-about {
         height: 60vh;
@@ -68,14 +83,21 @@
                 {% for i in doc %}
                 <div class="mb-4 d-flex justify-content-between align-items-center contact-information-box">
                     <div class="about">
-                        <img src="{{ doctor.image.url }}" alt="Doctor to call" width="100" height="100" class="card-avatar">
-                        <p>{{i.name}}</p>
-                        <p>{{i.mobile}}</p>
-                        <p>{{i.special}}</p>
+                        {% if i.image %}
+                            <img src="{{ i.image.url }}" alt="Doctor to call" width="100" height="100" class="card-avatar">
+                        {% else %}
+                            <img src="{% static 'images/person-01.jpg' %}" alt="Doctor to call" width="100" height="100" class="card-avatar">
+                        {% endif %}
+                        <div class="mt-4">
+                            <h2><i class="fa-solid fa-user fa-sm"></i>&nbsp; &nbsp;{{i.name}}</h2>
+                            <p><i class="fa-solid fa-phone fa-sm"></i>&nbsp; &nbsp;{{i.mobile}}</p>
+                            <p><i class="fa-solid fa-user-doctor fa-sm"></i>&nbsp; &nbsp;{{i.special}}</p>
+                        </div>
                     </div>
                     <div class="for-button">
-                        <button class="btn call">Call</button>
-                        <button class="btn message">Message</button>
+                        <a href="" class="btn"><i class="fa-solid fa-video fa-2xl video-button" style="color: #23408e;"></i></a>
+                        <a href="" class="btn call">Call</a>
+                        <a href="" class="btn message">Message</a>
                     </div>
                 </div>
                 {% endfor %}

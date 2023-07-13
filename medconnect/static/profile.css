@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #54BBFF;
+    --color-primary: #23408e;
     --color-black:  #090909;
     --color-white: #ffffff;
     --color-grey: #a0a0a0;
@@ -82,7 +82,6 @@
 
 body {
     margin-top:20px;
-    background-color:#0451c3;
     color:#69707a;
 }
 .img-account-profile {
